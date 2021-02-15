@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://admin:admin@liveprograms.hl0e1.mongodb.net/data?retryWrites=true&w=majority"
+}

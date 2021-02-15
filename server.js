@@ -1,7 +1,11 @@
 // Sets up express server on either port given by enviornment varibale or port 5000.
 const express = require("express");
+const connectDB = require("./config/db");
 
 const app = express();
+
+// Connect to database
+connectDB();
 
 // Sends data to the "/" endpoint on the server
 app.get("/", (req, res) =>
