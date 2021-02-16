@@ -1,29 +1,29 @@
-// All routes for the /api/footballTeamStats endpoint
+// All routes for the /api/mfootballTeamStats endpoint
 const express = require("express");
 const router = express.Router();
 
-// @route   POST api/footballTeamStats
+// @route   POST api/mfootballTeamStats
 // @desc    Add football stats
 // @acess   Public
 router.post("/", (req, res) => {
   res.send("Add football stats");
 });
 
-// @route   GET api/footballTeamStats
+// @route   GET api/mfootballTeamStats
 // @desc    Get an Acadia football stats
 // @acess   Public
 router.get("/", (req, res) => {
   res.send("Get Acadia football stats");
 });
 
-// @route   PUT api/footballTeamStats
+// @route   PUT api/mfootballTeamStats
 // @desc    Update Acadia Team Stats
 // @acess   Public
 router.put("/", (req, res) => {
   res.send("Update Acadia football stats");
 });
 
-// @route   DELETE api/footballTeamStats
+// @route   DELETE api/mfootballTeamStats
 // @desc    DELETE Acadia Team Stats
 // @acess   Public
 router.delete("/", (req, res) => {
