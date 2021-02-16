@@ -13,9 +13,9 @@ app.get("/", (req, res) =>
 );
 
 // Define Routes
-app.use("/api/footballRoster", require("./routes/footballRoster"));
-app.use("/api/footballSchedule", require("./routes/footballSchedule"));
-app.use("/api/footballTeamStats", require("./routes/footballTeamStats"));
+app.use("/api/mfootballRoster", require("./routes/mfootballRoster"));
+app.use("/api/mfootballSchedule", require("./routes/mfootballSchedule"));
+app.use("/api/mfootballTeamStats", require("./routes/mfootballTeamStats"));
 
 const PORT = process.env.PORT || 5000;
 
