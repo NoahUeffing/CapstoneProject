@@ -15,7 +15,7 @@ const success = chalk.keyword("green");
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
     await page.goto(
-      `https://www.acadiaathletics.ca/sports/wsoc/2019-20/roster`
+      `https://www.acadiaathletics.ca/sports/mice/2020-21/roster`
     );
     await page.waitForSelector(
       "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td.number"
@@ -32,6 +32,12 @@ const success = chalk.keyword("green");
     await page.waitForSelector(
       "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(5)"
     );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(6)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(7)"
+    );
     // create lists for each selector
     var data = await page.evaluate(() => {
       var noList = document.querySelectorAll(
@@ -46,8 +52,14 @@ const success = chalk.keyword("green");
       var yrList = document.querySelectorAll(
         `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(4)`
       );
-      var townList = document.querySelectorAll(
+      var htList = document.querySelectorAll(
         `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(5)`
+      );
+      var majorList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(6)`
+      );
+      var townList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(7)`
       );
       // makes an array of data to create json objects
       var rosterArray = [];
@@ -57,6 +69,8 @@ const success = chalk.keyword("green");
           name: nameList[i].innerText.trim(),
           pos: posList[i].innerText.trim(),
           yr: yrList[i].innerText.trim(),
+          ht: htList[i].innerText.trim(),
+          major: majorList[i].innerText.trim(),
           town: townList[i].innerText.trim(),
         };
       }
@@ -66,7 +80,7 @@ const success = chalk.keyword("green");
     await browser.close();
     // Writing the schedule/scores inside a json file
     fs.writeFile(
-      __dirname + "/../data/wsoccerRoster.json",
+      __dirname + "/../data/mhockeyRoster.json",
       JSON.stringify(data),
       function (err) {
         if (err) throw err;

@@ -1,3 +1,4 @@
+//Working feb 16 2021
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -13,21 +14,47 @@ const success = chalk.keyword("green");
     // open a new page
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
-    await page.goto(`https://www.acadiaathletics.ca/sports/wbkb/2019-20/roster`);
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > td.number");
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > th > a");
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(3)");
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(4)");
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(5)");
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(6)");
+    await page.goto(
+      `https://www.acadiaathletics.ca/sports/wbkb/2020-21/roster`
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td.number"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > th > a"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(3)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(4)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(5)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(6)"
+    );
     // create lists for each selector
     var data = await page.evaluate(() => {
-      var noList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > td.number`);
-      var nameList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > th > a`);
-      var posList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(3)`);
-      var yrList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(4)`);
-      var htList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(5)`);
-      var townList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(6)`);
+      var noList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td.number`
+      );
+      var nameList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > th > a`
+      );
+      var posList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(3)`
+      );
+      var yrList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(4)`
+      );
+      var htList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(5)`
+      );
+      var townList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(6)`
+      );
       // makes an array of data to create json objects
       var rosterArray = [];
       for (var i = 0; i < noList.length; i++) {
@@ -45,10 +72,14 @@ const success = chalk.keyword("green");
     // close headless browser
     await browser.close();
     // Writing the schedule/scores inside a json file
-    fs.writeFile("wbasketTeam.json", JSON.stringify(data), function (err) {
-      if (err) throw err;
-      console.log("Saved!");
-    });
+    fs.writeFile(
+      __dirname + "/../data/wbasketRoster.json",
+      JSON.stringify(data),
+      function (err) {
+        if (err) throw err;
+        console.log("Saved!");
+      }
+    );
     console.log(success("Browser Closed"));
   } catch (err) {
     // Catches and displays errors

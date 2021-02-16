@@ -1,4 +1,4 @@
-// Jan 26 2021 Currently returns two of all results :/
+// Feb 16 2021 Currently working
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -19,7 +19,7 @@ const success = chalk.keyword("green");
       { waitUntil: "domcontentloaded" }
     );
     await page.waitForSelector(
-      "#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(1)"
+      "#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(1)"
     );
     await page.waitForSelector(
       "#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td > a"
@@ -66,49 +66,49 @@ const success = chalk.keyword("green");
     // create lists for each selector
     var data = await page.evaluate(() => {
       var numberList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(1)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(1)`
       );
       var playerList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(2)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(2)`
       );
       var yrList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(3)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(3)`
       );
       var posList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(4)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(4)`
       );
       var gpList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(5)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(5)`
       );
       var gsList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(6)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(6)`
       );
       var minList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(7)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(7)`
       );
       var gaList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(8)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(8)`
       );
       var gaaList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(9)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(9)`
       );
       var svList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(10)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(10)`
       );
       var svpctList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(11)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(11)`
       );
       var winList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(12)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(12)`
       );
       var lossList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(13)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(13)`
       );
       var tieList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(14)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(14)`
       );
       var winpctList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(15)`
+        `#mainbody > div > div > div > div.tab-panel.clearfix.active > div > div > div.tab-panel.active > div:nth-child(5) > div > div > div > table > tbody > tr > td:nth-child(15)`
       );
 
       // makes an array of data to create json objects
@@ -139,7 +139,7 @@ const success = chalk.keyword("green");
     await browser.close();
     // Writing the schedule/scores inside a json file
     fs.writeFile(
-      __dirname + "/../Data/miceGoalieStats.json",
+      __dirname + "/../data/mhockeyGoalieStats.json",
       JSON.stringify(data),
       function (err) {
         if (err) throw err;

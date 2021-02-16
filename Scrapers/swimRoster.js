@@ -1,3 +1,4 @@
+// Working Feb 16 2021
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -13,17 +14,35 @@ const success = chalk.keyword("green");
     // open a new page
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
-    await page.goto(`https://www.acadiaathletics.ca/sports/swim/2019-20/roster`);
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > th > a");
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(2)");
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(3)");
-    await page.waitForSelector("#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(4)");
+    await page.goto(
+      `https://www.acadiaathletics.ca/sports/swim/2020-21/roster`
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > th > a"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(2)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(3)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(4)"
+    );
     // create lists for each selector
     var data = await page.evaluate(() => {
-      var nameList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > th > a`);
-      var yrList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(2)`);
-      var townList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(3)`);
-      var clubList = document.querySelectorAll(`#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(4)`);
+      var nameList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > th > a`
+      );
+      var yrList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(2)`
+      );
+      var townList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(3)`
+      );
+      var clubList = document.querySelectorAll(
+        `#mainbody > div.mod-roster > div.roster > table > tbody > tr > td:nth-child(4)`
+      );
       // makes an array of data to create json objects
       var rosterArray = [];
       for (var i = 0; i < nameList.length; i++) {
@@ -39,10 +58,14 @@ const success = chalk.keyword("green");
     // close headless browser
     await browser.close();
     // Writing the schedule/scores inside a json file
-    fs.writeFile("swimTeam.json", JSON.stringify(data), function (err) {
-      if (err) throw err;
-      console.log("Saved!");
-    });
+    fs.writeFile(
+      __dirname + "/../data/swimRoster.json",
+      JSON.stringify(data),
+      function (err) {
+        if (err) throw err;
+        console.log("Saved!");
+      }
+    );
     console.log(success("Browser Closed"));
   } catch (err) {
     // Catches and displays errors

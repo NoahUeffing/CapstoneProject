@@ -1,3 +1,4 @@
+// Works Feb 16 2021
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -79,7 +80,7 @@ const success = chalk.keyword("green");
     await browser.close();
     // Writing the schedule/scores inside a json file
     fs.writeFile(
-      __dirname + "/../Data/mfootTeam.json",
+      __dirname + "/../data/mfootRoster.json",
       JSON.stringify(data),
       function (err) {
         if (err) throw err;

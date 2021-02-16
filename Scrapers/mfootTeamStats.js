@@ -1,4 +1,4 @@
-// Working Feb 16 2021
+// Works Jan 26 2021
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -15,7 +15,7 @@ const success = chalk.keyword("green");
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
     await page.goto(
-      `http://www.acadiaathletics.ca/sports/wvball/2019-20/standings`
+      `http://www.acadiaathletics.ca/sports/fball/2019-20/standings`
     );
     await page.waitForSelector(
       "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td.stats-team.pinned-col"
@@ -88,7 +88,7 @@ const success = chalk.keyword("green");
     await browser.close();
     // Writing the schedule/scores inside a json file
     fs.writeFile(
-      __dirname + "/../data/wvolleyTeamStats.json",
+      __dirname + "/../data/mfootTeamStats.json",
       JSON.stringify(data),
       function (err) {
         if (err) throw err;

@@ -1,3 +1,4 @@
+// Working Feb 16 2021
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -18,90 +19,90 @@ const success = chalk.keyword("green");
       { waitUntil: "domcontentloaded" }
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.active.clearfix > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(1)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(1)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td.text.pinned-col > a"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(2)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(3)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(3)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(4)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(4)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(5)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(5)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(6)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(6)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(7)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(7)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(8)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(8)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(9)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(9)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(10)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(10)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(11)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(11)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(12)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(12)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(13)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(13)"
     );
     await page.waitForSelector(
-      "#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(14)"
+      "#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(14)"
     );
     // create lists for each selector
     var data = await page.evaluate(() => {
       var numberList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(1)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(1)`
       );
       var playerList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td.text.pinned-col > a`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(2)`
       );
       var yrList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(3)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(3)`
       );
       var posList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(4)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(4)`
       );
       var gpList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(5)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(5)`
       );
       var gsList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(6)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(6)`
       );
       var mpgList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(7)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(7)`
       );
       var FG_Glist = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(8)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(8)`
       );
       var PCTList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(9)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(9)`
       );
       var tpgList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(10)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(10)`
       );
       var tppctList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(11)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(11)`
       );
       var FTGList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(12)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(12)`
       );
       var FTPList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(13)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(13)`
       );
       var ppgList = document.querySelectorAll(
-        `#mainbody > div.stats-container.stats-responsive-container.l > div.tab-container.primary.clearfix > div.tab-panels.clearfix > div.tab-panel.clearfix.active > div > div.tab-panels.clearfix > div.tab-panel.active > div > div.tab-panels.tab-panels-floated.clearfix > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(14)`
+        `#mainbody > div > div > div > div > div > div > div.tab-panel.active > div > div > div.tab-panel.clearfix.active > div:nth-child(2) > div > div > div > table > tbody > tr > td:nth-child(14)`
       );
 
       // makes an array of data to create json objects
@@ -130,7 +131,7 @@ const success = chalk.keyword("green");
     await browser.close();
     // Writing the schedule/scores inside a json file
     fs.writeFile(
-      __dirname + "/../Data/mbasketPlayerStats.json",
+      __dirname + "/../data/mbasketShootingStats.json",
       JSON.stringify(data),
       function (err) {
         if (err) throw err;

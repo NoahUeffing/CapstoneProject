@@ -1,4 +1,4 @@
-// Seems to work Jan 26 2021
+// Working Feb 16 2021
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -15,42 +15,49 @@ const success = chalk.keyword("green");
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
     await page.goto(
-      `https://www.acadiaathletics.ca/sports/wxc/2020-21/schedule`
+      `https://www.acadiaathletics.ca/sports/wvball/2020-21/schedule`
     );
     await page.waitForSelector(
-      "#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_date"
+      "#mainbody > div > div > div> div > div > div > div.date"
     );
     await page.waitForSelector(
-      "#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_neutralsite"
+      "#mainbody > div > div > div> div > div > div > div.va"
     );
     await page.waitForSelector(
-      "#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_result.e_awayresult"
+      "#mainbody > div > div > div > div > div > div > div > div > span > span"
     );
     await page.waitForSelector(
-      "#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_links"
+      "#mainbody > div > div > div > div > div > div > div.status"
+    );
+    await page.waitForSelector(
+      "#mainbody > div > div > div > div > div > div > div.result"
     );
     // create lists for each selector
     var data = await page.evaluate(() => {
       var dateList = document.querySelectorAll(
-        `#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_date`
+        `#mainbody > div > div > div > div > div > div > div.date`
       );
-      var eventList = document.querySelectorAll(
-        `#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_neutralsite`
+      var homeAwayList = document.querySelectorAll(
+        `#mainbody > div > div > div > div > div > div > div.va`
+      );
+      var opponentList = document.querySelectorAll(
+        `#mainbody > div > div > div > div > div > div > div > div > span > span`
+      );
+      var statusList = document.querySelectorAll(
+        `#mainbody > div > div > div > div > div > div > div.status`
       );
       var resultList = document.querySelectorAll(
-        `#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_result.e_awayresult`
-      );
-      var linksList = document.querySelectorAll(
-        `#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_links`
+        `#mainbody > div > div > div > div > div > div > div.result`
       );
       // makes an array of data to create json objects
       var scheduleArray = [];
       for (var i = 0; i < dateList.length; i++) {
         scheduleArray[i] = {
-          date: dateList[i].innerText.trim(),
-          event: eventList[i].innerText.trim(),
+          date: dateList[i].getAttribute("title"),
+          homeAway: homeAwayList[i].innerText.trim(),
+          opponent: opponentList[i].innerText.trim(),
+          status: statusList[i].innerText.trim(),
           result: resultList[i].innerText.trim(),
-          links: linksList[i].innerText.trim(),
         };
       }
       return scheduleArray;
@@ -59,7 +66,7 @@ const success = chalk.keyword("green");
     await browser.close();
     // Writing the schedule/scores inside a json file
     fs.writeFile(
-      __dirname + "/../Data/crossschedule.json",
+      __dirname + "/../data/wvolleySchedule.json",
       JSON.stringify(data),
       function (err) {
         if (err) throw err;

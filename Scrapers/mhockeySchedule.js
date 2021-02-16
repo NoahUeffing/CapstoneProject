@@ -1,4 +1,4 @@
-// Works Jan 26 2021
+// Works Feb 16 2021
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -15,7 +15,7 @@ const success = chalk.keyword("green");
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
     await page.goto(
-      `https://www.acadiaathletics.ca/sports/fball/2020-21/schedule`
+      `https://www.acadiaathletics.ca/sports/mice/2020-21/schedule`
     );
     await page.waitForSelector(
       "#mainbody > div > div > div > div > div > div > div.date"
@@ -24,15 +24,14 @@ const success = chalk.keyword("green");
       "#mainbody > div > div > div > div > div > div > div.va"
     );
     await page.waitForSelector(
-      "#mainbody > div > div > div > div > div > div > div > div > span > span.team-name"
+      "#mainbody > div > div> div > div > div > div > div > div.opponent > span > span"
     );
     await page.waitForSelector(
       "#mainbody > div > div > div > div > div > div > div.status"
     );
     await page.waitForSelector(
-      "#mainbody > div > div > div > div > div > div > div > ul > li > a"
+      "#mainbody > div > div > div > div > div > div > div.result"
     );
-
     // create lists for each selector
     var data = await page.evaluate(() => {
       var dateList = document.querySelectorAll(
@@ -42,23 +41,23 @@ const success = chalk.keyword("green");
         `#mainbody > div > div > div > div > div > div > div.va`
       );
       var opponentList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > div > span > span.team-name`
+        `#mainbody > div > div> div > div > div > div > div > div.opponent > span > span`
       );
       var statusList = document.querySelectorAll(
         `#mainbody > div > div > div > div > div > div > div.status`
       );
-      var liveLinkList = document.querySelectorAll(
-        `#mainbody > div > div > div > div > div > div > div > ul > li > a`
+      var scoreList = document.querySelectorAll(
+        `#mainbody > div > div > div > div > div > div > div.result`
       );
       // makes an array of data to create json objects
       var scheduleArray = [];
       for (var i = 0; i < dateList.length; i++) {
         scheduleArray[i] = {
-          date: dateList[i].title.trim(),
+          date: dateList[i].getAttribute("title"),
           homeAway: homeAwayList[i].innerText.trim(),
           opponent: opponentList[i].innerText.trim(),
           status: statusList[i].innerText.trim(),
-          liveLink: liveLinkList[i].href.trim(),
+          score: scoreList[i].innerText.trim(),
         };
       }
       return scheduleArray;
@@ -67,7 +66,7 @@ const success = chalk.keyword("green");
     await browser.close();
     // Writing the schedule/scores inside a json file
     fs.writeFile(
-      __dirname + "/../Data/footschedule.json",
+      __dirname + "/../data/mhockeySchedule.json",
       JSON.stringify(data),
       function (err) {
         if (err) throw err;

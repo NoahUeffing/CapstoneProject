@@ -1,4 +1,4 @@
-// Works Jan 26 2021
+// Working Feb 16 2021
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -15,10 +15,10 @@ const success = chalk.keyword("green");
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
     await page.goto(
-      `http://www.acadiaathletics.ca/sports/fball/2019-20/standings`
+      `http://www.acadiaathletics.ca/sports/mice/2019-20/standings`
     );
     await page.waitForSelector(
-      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td.stats-team.pinned-col"
+      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td.stats-team.pinned-col > a"
     );
     await page.waitForSelector(
       "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(2)"
@@ -41,10 +41,13 @@ const success = chalk.keyword("green");
     await page.waitForSelector(
       "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(14)"
     );
+    await page.waitForSelector(
+      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(15)"
+    );
     // create lists for each selector
     var data = await page.evaluate(() => {
       var teamList = document.querySelectorAll(
-        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td.stats-team.pinned-col`
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td.stats-team.pinned-col > a`
       );
       var gpList = document.querySelectorAll(
         `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(2)`
@@ -67,6 +70,9 @@ const success = chalk.keyword("green");
       var streakList = document.querySelectorAll(
         `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(14)`
       );
+      var ptsList = document.querySelectorAll(
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(15)`
+      );
 
       // makes an array of data to create json objects
       var statsArray = [];
@@ -80,6 +86,7 @@ const success = chalk.keyword("green");
           ga: gaList[i].innerText.trim(),
           l10: l10List[i].innerText.trim(),
           streak: streakList[i].innerText.trim(),
+          pts: ptsList[i].innerText.trim(),
         };
       }
       return statsArray;
@@ -88,7 +95,7 @@ const success = chalk.keyword("green");
     await browser.close();
     // Writing the schedule/scores inside a json file
     fs.writeFile(
-      __dirname + "/../Data/footStats.json",
+      __dirname + "/../data/mhockeyTeamStats.json",
       JSON.stringify(data),
       function (err) {
         if (err) throw err;

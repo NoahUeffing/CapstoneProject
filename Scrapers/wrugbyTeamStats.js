@@ -1,3 +1,4 @@
+// Working Feb 16 2021
 const puppeteer = require("puppeteer");
 const chalk = require("chalk");
 var fs = require("fs");
@@ -13,24 +14,56 @@ const success = chalk.keyword("green");
     // open a new page
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
-    await page.goto(`http://www.acadiaathletics.ca/sports/wrugby/2019-20/standings`);
-    await page.waitForSelector("#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td.stats-team.pinned-col");
-    await page.waitForSelector("#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(2)"); 
-    await page.waitForSelector("#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(3)"); 
-    await page.waitForSelector("#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(4)");
-    await page.waitForSelector("#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(5)"); 
-    await page.waitForSelector("#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(13)"); 
-    await page.waitForSelector("#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(14)"); 
+    await page.goto(
+      `http://www.acadiaathletics.ca/sports/wrugby/2019-20/standings`
+    );
+    await page.waitForSelector(
+      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td.stats-team.pinned-col"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(2)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(3)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(4)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(5)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(13)"
+    );
+    await page.waitForSelector(
+      "#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(14)"
+    );
     // create lists for each selector
     var data = await page.evaluate(() => {
-      var teamList = document.querySelectorAll(`#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td.stats-team.pinned-col`);
-      var gpList = document.querySelectorAll(`#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(2)`);
-      var winLossList = document.querySelectorAll(`#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(3)`);
-      var pctList = document.querySelectorAll(`#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(4)`);
-      var gfList = document.querySelectorAll(`#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(5)`);
-      var gaList = document.querySelectorAll(`#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(6)`);
-      var l10List = document.querySelectorAll(`#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(13)`);
-      var streakList = document.querySelectorAll(`#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(14)`);
+      var teamList = document.querySelectorAll(
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td.stats-team.pinned-col`
+      );
+      var gpList = document.querySelectorAll(
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(2)`
+      );
+      var winLossList = document.querySelectorAll(
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(3)`
+      );
+      var pctList = document.querySelectorAll(
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(4)`
+      );
+      var gfList = document.querySelectorAll(
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(5)`
+      );
+      var gaList = document.querySelectorAll(
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(6)`
+      );
+      var l10List = document.querySelectorAll(
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(13)`
+      );
+      var streakList = document.querySelectorAll(
+        `#mainbody > div.full-standings.clearfix > div > div.overflow > div > table > tbody > tr > td:nth-child(14)`
+      );
 
       // makes an array of data to create json objects
       var statsArray = [];
@@ -51,10 +84,14 @@ const success = chalk.keyword("green");
     // close headless browser
     await browser.close();
     // Writing the schedule/scores inside a json file
-    fs.writeFile("wrugbyStats.json", JSON.stringify(data), function(err) {
-      if (err) throw err;
-      console.log("Saved!");
-    });
+    fs.writeFile(
+      __dirname + "/../data/wrugbyTeamStats.json",
+      JSON.stringify(data),
+      function (err) {
+        if (err) throw err;
+        console.log("Saved!");
+      }
+    );
     console.log(success("Browser Closed"));
   } catch (err) {
     // Catches and displays errors
