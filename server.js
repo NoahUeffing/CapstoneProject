@@ -7,15 +7,18 @@ const app = express();
 // Connect to database
 connectDB();
 
+// Init middleware
+app.use(express.json({ extended: false }));
+
 // Sends data to the "/" endpoint on the server
 app.get("/", (req, res) =>
   res.json({ msg: "Welcome to the Acadia Athletics programs API..." })
 );
 
 // Define Routes
-app.use("/api/mfootballRoster", require("./routes/mfootballRoster"));
-app.use("/api/mfootballSchedule", require("./routes/mfootballSchedule"));
-app.use("/api/mfootballTeamStats", require("./routes/mfootballTeamStats"));
+app.use("/api/mfootballPlayers", require("./routes/mfootballPlayers"));
+app.use("/api/mfootballGames", require("./routes/mfootballGames"));
+app.use("/api/mfootballTeams", require("./routes/mfootballTeams"));
 
 const PORT = process.env.PORT || 5000;
 
