@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const MFootballPlayerSchema = mongoose.Schema({
   no: {
-    type: String,
+    type: Number,
   },
   name: {
     type: String,

@@ -38,8 +38,14 @@ router.post("/", (req, res) => {
 // @route   GET api/mfootballGames
 // @desc    Get an Acadia football game
 // @acess   Public
-router.get("/", (req, res) => {
-  res.send("Get Acadia football game");
+router.get("/", async (req, res) => {
+  try {
+    const schedule = await MFootballGame.find().sort({ date: "asc" });
+    res.json(schedule);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 // @route   PUT api/mfootballGames

@@ -8,7 +8,7 @@ const MFootballPlayer = require("../models/MFootballPlayer");
 // @route   POST api/mfootballPlayers
 // @desc    Add a Acadia football player
 // @acess   Public
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -26,7 +26,7 @@ router.post("/", (req, res) => {
         wt,
         town,
       });
-      mfootballPlayer.save();
+      await mfootballPlayer.save();
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
@@ -39,8 +39,14 @@ router.post("/", (req, res) => {
 // @route   GET api/mfootballPlayers
 // @desc    Get an Acadia football player
 // @acess   Public
-router.get("/", (req, res) => {
-  res.send("Get Acadia football player");
+router.get("/", async (req, res) => {
+  try {
+    const roster = await MFootballPlayer.find().sort({ no: "asc" });
+    res.json(roster);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 // @route   PUT api/mfootballPlayers

@@ -41,8 +41,14 @@ router.post("/", (req, res) => {
 // @route   GET api/mfootballTeams
 // @desc    Get an Acadia football stats
 // @acess   Public
-router.get("/", (req, res) => {
-  res.send("Get football team");
+router.get("/", async (req, res) => {
+  try {
+    const standings = await MFootballTeam.find().sort({ winLoss: "desc" });
+    res.json(standings);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 // @route   PUT api/mfootballTeams
