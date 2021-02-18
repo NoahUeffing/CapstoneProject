@@ -46,7 +46,7 @@ const success = chalk.keyword("green");
       var statusList = document.querySelectorAll(
         `#mainbody > div > div > div > div > div > div > div.status`
       );
-      var resultList = document.querySelectorAll(
+      var scoreList = document.querySelectorAll(
         `#mainbody > div > div > div > div > div > div > div.result`
       );
       // makes an array of data to create json objects
@@ -57,7 +57,7 @@ const success = chalk.keyword("green");
           homeAway: homeAwayList[i].innerText.trim(),
           opponent: opponentList[i].innerText.trim(),
           status: statusList[i].innerText.trim(),
-          result: resultList[i].innerText.trim(),
+          score: scoreList[i].innerText.trim(),
         };
       }
       return scheduleArray;

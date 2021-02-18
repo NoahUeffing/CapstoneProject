@@ -1,14 +1,13 @@
-// All routes for the /api/swimmingEvents endpoint
-// NOTE: Sorting by date for events is currently bugged as no year is included on the Acadia Athletics site
+// All routes for the /api/wrugbyGames endpoint
 const express = require("express");
 const router = express.Router();
 
 const { validationResult } = require("express-validator");
 
-const SwimmingEvent = require("../models/SwimmingEvent");
+const WRugbyGame = require("../models/WRugbyGame");
 
-// @route   POST api/swimmingEvents
-// @desc    Add a swimming event to the schedule
+// @route   POST api/wrugbyGames
+// @desc    Add a rugby game to schedule
 // @acess   Public
 router.post("/", (req, res) => {
   const errors = validationResult(req);
@@ -17,15 +16,16 @@ router.post("/", (req, res) => {
   }
 
   for (var gameItem in req.body) {
-    const { date, teams, event, results } = req.body[gameItem];
+    const { date, homeAway, opponent, status, result } = req.body[gameItem];
     try {
-      swimmingEvent = new SwimmingEvent({
+      wrugbyGame = new WRugbyGame({
         date,
-        teams,
-        event,
-        results,
+        homeAway,
+        opponent,
+        status,
+        result,
       });
-      swimmingEvent.save();
+      wrugbyGame.save();
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server error");
@@ -35,12 +35,12 @@ router.post("/", (req, res) => {
   res.send("Schedule saved");
 });
 
-// @route   GET api/swimmingEvents
-// @desc    Get a swimming event
+// @route   GET api/wrugbyGames
+// @desc    Get an Acadia rugby game
 // @acess   Public
 router.get("/", async (req, res) => {
   try {
-    const schedule = await SwimmingEvent.find().sort({ date: "asc" });
+    const schedule = await WRugbyGame.find().sort({ date: "asc" });
     res.json(schedule);
   } catch (err) {
     console.error(err.message);
@@ -48,20 +48,20 @@ router.get("/", async (req, res) => {
   }
 });
 
-// @route   PUT api/swimmingEvents
-// @desc    Update Acadia swiming events
+// @route   PUT api/wrugbyGames
+// @desc    Update Acadia rugby games
 // @acess   Public
 // Not currently in use.
 router.put("/", (req, res) => {
-  res.send("Update Acadia swimming event");
+  res.send("Update Acadia rugby game");
 });
 
-// @route   DELETE api/swimmingEvents
-// @desc    Delete Acadia swimming event
+// @route   DELETE api/wrugbyGames
+// @desc    Delete Acadia rugby games
 // @acess   Public
 router.delete("/", async (req, res) => {
   try {
-    await SwimmingEvent.deleteMany({});
+    await WRugbyGame.deleteMany({});
     res.send("Schedule deleted");
   } catch (err) {
     console.error(err.message);
