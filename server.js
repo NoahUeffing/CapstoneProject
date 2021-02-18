@@ -16,9 +16,34 @@ app.get("/", (req, res) =>
 );
 
 // Define Routes
+
+// Basketball
+app.use("/api/mbasketControlStats", require("./routes/mbasketControlStats"));
+app.use("/api/mbasketPlayers", require("./routes/mbasketPlayers"));
+app.use("/api/mbasketGames", require("./routes/mbasketGames"));
+app.use("/api/mbasketShootingStats", require("./routes/mbasketShootingStats"));
+app.use("/api/mbasketTeams", require("./routes/mbasketTeams"));
+
+// Football
 app.use("/api/mfootballPlayers", require("./routes/mfootballPlayers"));
 app.use("/api/mfootballGames", require("./routes/mfootballGames"));
 app.use("/api/mfootballTeams", require("./routes/mfootballTeams"));
+
+// Hockey
+app.use("/api/mhockeyPlayerStats", require("./routes/mhockeyPlayerStats"));
+app.use("/api/mhockeyPlayers", require("./routes/mhockeyPlayers"));
+app.use("/api/mhockeyGames", require("./routes/mhockeyGames"));
+app.use("/api/mhockeyGoalieStats", require("./routes/mhockeyGoalieStats"));
+app.use("/api/mhockeyTeams", require("./routes/mhockeyTeams"));
+
+// Soccer
+app.use("/api/msoccerPlayers", require("./routes/msoccerPlayers"));
+app.use("/api/msoccerGames", require("./routes/msoccerGames"));
+app.use("/api/msoccerTeams", require("./routes/msoccerTeams"));
+
+// Swimming
+app.use("/api/swimmers", require("./routes/swimmers"));
+app.use("/api/swimmingEvents", require("./routes/swimmingEvents"));
 
 const PORT = process.env.PORT || 5000;
 

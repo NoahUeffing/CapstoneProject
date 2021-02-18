@@ -66,7 +66,7 @@ const success = chalk.keyword("green");
     await browser.close();
     // Writing the schedule/scores inside a json file
     fs.writeFile(
-      __dirname + "/../data/msoccerschedule.json",
+      __dirname + "/../data/msoccerSchedule.json",
       JSON.stringify(data),
       function (err) {
         if (err) throw err;

@@ -1,1 +1,79 @@
-[{"team":"UNB","gp":"30","winLoss":"26-4","pct":"0.867","gf":"160","ga":"57","l10":"10-0","streak":"Won 14","pts":"52"},{"team":"ACADIA","gp":"30","winLoss":"19-11","pct":"0.633","gf":"113","ga":"92","l10":"3-7","streak":"Lost 1","pts":"40"},{"team":"SAINT MARY'S","gp":"30","winLoss":"17-13","pct":"0.567","gf":"116","ga":"108","l10":"7-3","streak":"Lost 1","pts":"35"},{"team":"MONCTON","gp":"30","winLoss":"13-17","pct":"0.433","gf":"92","ga":"98","l10":"4-6","streak":"Lost 1","pts":"32"},{"team":"STFX","gp":"30","winLoss":"12-18","pct":"0.400","gf":"103","ga":"125","l10":"5-5","streak":"Won 1","pts":"29"},{"team":"UPEI","gp":"30","winLoss":"10-20","pct":"0.333","gf":"98","ga":"139","l10":"2-8","streak":"Lost 2","pts":"25"},{"team":"DALHOUSIE","gp":"30","winLoss":"8-22","pct":"0.267","gf":"78","ga":"141","l10":"3-7","streak":"Won 1","pts":"19"}]
+[
+  {
+    "team": "UNB",
+    "gp": "30",
+    "winLoss": "26-4",
+    "pct": "0.867",
+    "gf": "160",
+    "ga": "57",
+    "l10": "10-0",
+    "streak": "Won 14",
+    "pts": "52"
+  },
+  {
+    "team": "ACADIA",
+    "gp": "30",
+    "winLoss": "19-11",
+    "pct": "0.633",
+    "gf": "113",
+    "ga": "92",
+    "l10": "3-7",
+    "streak": "Lost 1",
+    "pts": "40"
+  },
+  {
+    "team": "SAINT MARY'S",
+    "gp": "30",
+    "winLoss": "17-13",
+    "pct": "0.567",
+    "gf": "116",
+    "ga": "108",
+    "l10": "7-3",
+    "streak": "Lost 1",
+    "pts": "35"
+  },
+  {
+    "team": "MONCTON",
+    "gp": "30",
+    "winLoss": "13-17",
+    "pct": "0.433",
+    "gf": "92",
+    "ga": "98",
+    "l10": "4-6",
+    "streak": "Lost 1",
+    "pts": "32"
+  },
+  {
+    "team": "STFX",
+    "gp": "30",
+    "winLoss": "12-18",
+    "pct": "0.400",
+    "gf": "103",
+    "ga": "125",
+    "l10": "5-5",
+    "streak": "Won 1",
+    "pts": "29"
+  },
+  {
+    "team": "UPEI",
+    "gp": "30",
+    "winLoss": "10-20",
+    "pct": "0.333",
+    "gf": "98",
+    "ga": "139",
+    "l10": "2-8",
+    "streak": "Lost 2",
+    "pts": "25"
+  },
+  {
+    "team": "DALHOUSIE",
+    "gp": "30",
+    "winLoss": "8-22",
+    "pct": "0.267",
+    "gf": "78",
+    "ga": "141",
+    "l10": "3-7",
+    "streak": "Won 1",
+    "pts": "19"
+  }
+]
