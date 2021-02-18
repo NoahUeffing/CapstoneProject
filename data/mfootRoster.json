@@ -1,1 +1,776 @@
-[{"no":"1","name":"Glodin Mulali","pos":"WR","yr":"3","ht":"5-8","wt":"175 lbs","town":"Moncton, NB / Harrison Trimble H.S."},{"no":"2","name":"Riley Gabriel","pos":"DB","yr":"2","ht":"5-8","wt":"190 lbs","town":"North River, NS / Cobequid Educational Centre"},{"no":"3","name":"Jadin White-Frayne","pos":"DB","yr":"4","ht":"5-7","wt":"160 lbs","town":"Wolfville, NS / Centennial High School"},{"no":"4","name":"Darius Beckford","pos":"WR","yr":"4","ht":"5-6","wt":"160 lbs","town":"Ottawa, ON / Cumberland Panthers"},{"no":"5","name":"Bailey Feltmate","pos":"LB","yr":"4","ht":"6-2","wt":"220 lbs","town":"Moncton, NB / Moncton H.S."},{"no":"6","name":"Hunter Guenard","pos":"QB","yr":"4","ht":"6-1","wt":"220 lbs","town":"Calgary, AB / Centennial H.S."},{"no":"7","name":"Brett Switzer","pos":"DB","yr":"4","ht":"6-2","wt":"190 lbs","town":"Oakville, ON / Oakville Trafalgar H.S."},{"no":"8","name":"Dale Wright","pos":"RB","yr":"4","ht":"5-6","wt":"195 lbs","town":"Markham, ON / Brother Andre Secondary School"},{"no":"9","name":"Benjamin Smith","pos":"WR","yr":"2","ht":"6-1","wt":"175 lbs","town":"Bedford, NS / Charles P. Allen H.S."},{"no":"10","name":"Caleb Ryder","pos":"WR","yr":"3","ht":"6-2","wt":"185 lbs","town":"Moncton, NB / Moncton H.S"},{"no":"11","name":"Jacob Fenchak","pos":"WR","yr":"2","ht":"6-0","wt":"180 lbs","town":"Newmarket, ON / York Region Lions"},{"no":"12","name":"Cordell Hastings","pos":"WR","yr":"4","ht":"6-3","wt":"195 lbs","town":"Calgary, AB / Centennial H.S,"},{"no":"13","name":"Daniel Hashem","pos":"QB","yr":"1","ht":"6-3","wt":"195 lbs","town":"Hammonds Plains, NS / C.P. Allen High School"},{"no":"14","name":"Matthew Gledhill","pos":"WR","yr":"3","ht":"6-1","wt":"190 lbs","town":"Ottawa, ON / Gloucester Raiders Club"},{"no":"15","name":"Duncan Patterson","pos":"QB","yr":"2","ht":"6-0","wt":"200 lbs","town":"Bedford, NS / Saint Mary's University"},{"no":"16","name":"Mason Brown","pos":"QB","yr":"2","ht":"5-10","wt":"200 lbs","town":"Stoney Creek, ON / Westshore Rebels Junior Football"},{"no":"17","name":"Dru Guimond","pos":"DB","yr":"1","ht":"6-3","wt":"180 lbs","town":"Riverview, NB / Riverview H.S."},{"no":"18","name":"Alex Lawrie","pos":"QB","yr":"3","ht":"5-8","wt":"190 lbs","town":"Orleans, ON / Cumberland Panthers"},{"no":"19","name":"Adam Shoemaker","pos":"QB","yr":"1","ht":"6-0","wt":"195 lbs","town":"Guelph, ON / Waterlool Region Predators"},{"no":"20","name":"Emmanuel Beals","pos":"DB","yr":"1","ht":"5-9","wt":"175 lbs","town":"Ajax, ON / Vanier College"},{"no":"22","name":"Cole Estabrooks","pos":"RB","yr":"2","ht":"6-0","wt":"190 lbs","town":"Moncton, NB / Bernice McNaughton H.S."},{"no":"23","name":"Rory Kelly","pos":"DB","yr":"4","ht":"6-2","wt":"192 lbs","town":"Moncton, NB / Moncton High School"},{"no":"24","name":"Julien Poirier-McKiggan","pos":"DB","yr":"1","ht":"5-9","wt":"173 lbs","town":"Halifax, NS / Citadel High School"},{"no":"25","name":"Jayden Simmonds","pos":"RB","yr":"1","ht":"5-10","wt":"180 lbs","town":"New Minas, NS / Horton High School"},{"no":"26","name":"Ewan MacKeen","pos":"DB","yr":"1","ht":"5-10","wt":"185 lbs","town":"Halifax, NS / Team Nova Scotia"},{"no":"27","name":"Luke Johnston","pos":"DB","yr":"1","ht":"5-8","wt":"161 lbs","town":"Port Williams, NS / Horton High School"},{"no":"28","name":"Christopher Cameron-Kogler","pos":"DB","yr":"1","ht":"6-1","wt":"185 lbs","town":"Moncton, NB / Moncton High School"},{"no":"29","name":"Ben George","pos":"DB","yr":"1","ht":"5-9","wt":"175 lbs","town":"Moncton, NB / Moncton High School"},{"no":"30","name":"Matthew Seftel","pos":"LB","yr":"1","ht":"6-1","wt":"190 lbs","town":"Toronto, ON / Mississauga Warriors"},{"no":"31","name":"Cameron Morley","pos":"RB","yr":"1","ht":"5-","wt":"175 lbs","town":"Moncton, NB / U18 Team NB"},{"no":"32","name":"Pieter Blok","pos":"RB","yr":"1","ht":"5-8","wt":"195 lbs","town":"Enfield, NS / U18 Team Nova Scotia"},{"no":"33","name":"Andrew Holmes","pos":"LB","yr":"2","ht":"5-6","wt":"185 lbs","town":"Smith Falls, ON / Myers Riders"},{"no":"34","name":"Leif Henrichs","pos":"WR","yr":"2","ht":"6-0","wt":"175 lbs","town":"Colpitts Settlement, NB / Riverview High School"},{"no":"35","name":"Franck Kemayou","pos":"LB","yr":"1","ht":"6-0","wt":"195 lbs","town":"Toronto, ON / Mississauga Warriors"},{"no":"36","name":"Zach Cormier","pos":"DL","yr":"2","ht":"6-0","wt":"212 lbs","town":"Amherst, NS / U18 Team NB"},{"no":"37","name":"Andre Hyslop","pos":"LB","yr":"1","ht":"5-10","wt":"176 lbs","town":"Moncton, NB / U18 Team NB"},{"no":"38","name":"Ethan Phinney","pos":"RB","yr":"1","ht":"5-9","wt":"180 lbs","town":"Porters Lake, NS / -"},{"no":"39","name":"Darcy Thibaudeau","pos":"LB","yr":"2","ht":"5-9","wt":"200 lbs","town":"St. Lazare, QC / John Abbott College"},{"no":"40","name":"Cullen O'Leary","pos":"DB","yr":"1","ht":"5-9","wt":"175 lbs","town":"Halifax, NS / Sackville, NS"},{"no":"41","name":"Conor Jacobs","pos":"DB","yr":"1","ht":"6-1","wt":"175 lbs","town":"Hammonds Plains, NS / C.P. Allen High School"},{"no":"42","name":"Lian Young","pos":"DL","yr":"1","ht":"6-0","wt":"200 lbs","town":"Halifax, NS / Citadel High School"},{"no":"43","name":"Ethan Mathieu","pos":"DB","yr":"1","ht":"5-7","wt":"150 lbs","town":"Eastern Passage, NS / Auburn H.S."},{"no":"44","name":"Jared McLeod","pos":"DL","yr":"1","ht":"6-0","wt":"215 lbs","town":"Calgary, AB / Centennial High School"},{"no":"45","name":"Thomas Tzagarakis","pos":"LB","yr":"1","ht":"5-9","wt":"190 lbs","town":"Halifax, NS / Citadel High School"},{"no":"46","name":"Jamarcus Williams","pos":"DB","yr":"2","ht":"6-0","wt":"194 lbs","town":"Ottawa, ON / Cumberland Panthers - OVFL"},{"no":"47","name":"Graham Nightingale","pos":"LB","yr":"1","ht":"6-0","wt":"185 lbs","town":"Ottawa, ON / Ottawa Valley Silver Seven"},{"no":"48","name":"Aidan Cowan","pos":"DL","yr":"3","ht":"5-8","wt":"200 lbs","town":"Ottawa, ON / Cumberland Panthers - OVFL"},{"no":"49","name":"Kyle Chappus","pos":"DL","yr":"2","ht":"6-2","wt":"225 lbs","town":"Black River, NS / Horton High School"},{"no":"50","name":"Ethan Sperling","pos":"DL","yr":"1","ht":"6-1","wt":"220 lbs","town":"Highbury, NS / Horton High School"},{"no":"51","name":"Kameron Bell","pos":"LB","yr":"2","ht":"6-0","wt":"185 lbs","town":"Moncton, NB / Bernice MacNaughton High School"},{"no":"52","name":"Evan Holmes","pos":"DL","yr":"3","ht":"6-2","wt":"225 lbs","town":"Wolfville, NS / Horton High School"},{"no":"53","name":"Alex Smith","pos":"OL","yr":"2","ht":"6-3","wt":"270 lbs","town":"Moncton, NB / Harrison Trimble High School"},{"no":"54","name":"Anderson Recker","pos":"DL","yr":"2","ht":"6-1","wt":"235 lbs","town":"Stillwater Lake, NS / Team Canada U19 IFAF"},{"no":"55","name":"Pat Marsden","pos":"DL","yr":"2","ht":"5-8","wt":"270 lbs","town":"Toronto, ON / Trinity College School"},{"no":"56","name":"Ethan Dunnett","pos":"OL","yr":"1","ht":"6-3","wt":"290 lbs","town":"Moncton, NB / Moncton High School"},{"no":"57","name":"Spencer Richard","pos":"LB","yr":"1","ht":"5-10","wt":"213 lbs","town":"Wolfville, NS / Horton High School"},{"no":"58","name":"Brendan Jordahl","pos":"OL","yr":"1","ht":"6-4","wt":"340 lbs","town":"Fountain Valley, CA / Orange Coast College"},{"no":"59","name":"Noah Lee","pos":"LB","yr":"1","ht":"6-1","wt":"210 lbs","town":"Hammonds Plains, NS / C.P. Allen High School"},{"no":"60","name":"Benjamin Brumm","pos":"LB","yr":"1","ht":"5-9","wt":"205 lbs","town":"Dartmouth, NS / Dartmouth High School"},{"no":"61","name":"Aidan O'Rourke","pos":"OL","yr":"1","ht":"6-0","wt":"300 lbs","town":"Stanhope, PE / Moncton High School"},{"no":"62","name":"Jamie Fortune","pos":"OL","yr":"2","ht":"6-4","wt":"255 lbs","town":"Oliver, BC / Okanagan Sun - CJFL"},{"no":"63","name":"Trey Russell-Johnson","pos":"OL","yr":"4","ht":"6-1","wt":"270 lbs","town":"Kanata, ON / Ottawa Sooners"},{"no":"64","name":"Isaiah Hickson","pos":"OL","yr":"2","ht":"6-0","wt":"265 lbs","town":"Ottawa, ON / Cumberland Panthers"},{"no":"65","name":"Oliver Grant","pos":"OL","yr":"4","ht":"6-4","wt":"275 lbs","town":"Halifax, NS / Citadel High School"},{"no":"66","name":"Mitchell Miller","pos":"OL","yr":"1","ht":"5-9","wt":"270 lbs","town":"Port Williams, NS / Horton High School"},{"no":"67","name":"Tristan Murray","pos":"OL","yr":"4","ht":"6-2","wt":"190 lbs","town":"Kamloops, BC / Kamloops Broncos - CJFL"},{"no":"68","name":"Brandon Wilson","pos":"OL","yr":"2","ht":"6-2","wt":"320 lbs","town":"Nassau, Bahamas / Bishop's University"},{"no":"69","name":"Nick Pilichos","pos":"OL","yr":"1","ht":"6-3","wt":"235 lbs","town":"Bedford, NS / Team NS U18"},{"no":"75","name":"Shelton Williams","pos":"OL","yr":"5","ht":"6-4","wt":"270 lbs","town":"Nassau, Bahamas / Holland College"},{"no":"77","name":"Matthew Holmes","pos":"LB","yr":"1","ht":"5-9","wt":"175 lbs","town":"Wolfville, NS / Horton High School"},{"no":"80","name":"Will McNally","pos":"WR","yr":"1","ht":"6-1","wt":"185 lbs","town":"Moncton, NB / Bernice MacNaughton High School"},{"no":"81","name":"Jose Angulo","pos":"WR","yr":"1","ht":"6-1","wt":"200 lbs","town":"Halifax, NS / Citadel High School"},{"no":"82","name":"William Dallaire","pos":"WR","yr":"1","ht":"6-1","wt":"215 lbs","town":"St. Georges, QC / Beauce-Appalaches CEGEP"},{"no":"83","name":"Max Kohan","pos":"RB","yr":"1","ht":"6-1","wt":"225 lbs","town":"Calgary, AB / U18 Team Alberta"},{"no":"84","name":"Cameron Wall","pos":"RB","yr":"1","ht":"6-1","wt":"200 lbs","town":"Moncton, NB / Moncton High School"},{"no":"85","name":"Jacob Guy","pos":"WR","yr":"1","ht":"6-0","wt":"170 lbs","town":"Bedford, NS / C.P. Allen High School"},{"no":"86","name":"Brady Newcomb","pos":"WR","yr":"1","ht":"6-1","wt":"170 lbs","town":"Memramcook, NB / Moncton Mustangs MFL"},{"no":"87","name":"Brant Guimond","pos":"WR","yr":"1","ht":"5-11","wt":"180 lbs","town":"Riverview, NB / Riverview High School"},{"no":"88","name":"Ethan Kimura","pos":"WR","yr":"1","ht":"5-8","wt":"175 lbs","town":"Tokyo, Japan / Dr. EP Scarrett High School"},{"no":"89","name":"Scott Perry","pos":"WR","yr":"1","ht":"6-0","wt":"175 lbs","town":"Fredericton, NB / Leo Hayes High School"},{"no":"90","name":"Will Russell","pos":"DL","yr":"1","ht":"6-2","wt":"250 lbs","town":"Quispamsis, NB / Kennebecasis Valley High School"},{"no":"93","name":"Jacob Shannon","pos":"DL","yr":"1","ht":"6-2","wt":"195 lbs","town":"Truro, NS / Cobequid Educational Centre"},{"no":"94","name":"Mitchell Karel","pos":"LB","yr":"1","ht":"5-8","wt":"235 lbs","town":"Napanee, ON / Myers Riders OVFL"},{"no":"95","name":"Angelo Gentile","pos":"DL","yr":"3","ht":"5-10","wt":"290 lbs","town":"Halifax, NS / Halifax West High School"},{"no":"98","name":"Surya Ranganathan","pos":"DB","yr":"1","ht":"5-10","wt":"160 lbs","town":"Calgary, AB / Rundle College High School"},{"no":"99","name":"Thomas Grant","pos":"DL","yr":"4","ht":"6-5","wt":"290 lbs","town":"Halifax, NS / Citadel High School"}]
+[
+  {
+    "no": "1",
+    "name": "Glodin Mulali",
+    "pos": "WR",
+    "yr": "3",
+    "ht": "5-8",
+    "wt": "175 lbs",
+    "town": "Moncton, NB / Harrison Trimble H.S."
+  },
+  {
+    "no": "2",
+    "name": "Riley Gabriel",
+    "pos": "DB",
+    "yr": "2",
+    "ht": "5-8",
+    "wt": "190 lbs",
+    "town": "North River, NS / Cobequid Educational Centre"
+  },
+  {
+    "no": "3",
+    "name": "Jadin White-Frayne",
+    "pos": "DB",
+    "yr": "4",
+    "ht": "5-7",
+    "wt": "160 lbs",
+    "town": "Wolfville, NS / Centennial High School"
+  },
+  {
+    "no": "4",
+    "name": "Darius Beckford",
+    "pos": "WR",
+    "yr": "4",
+    "ht": "5-6",
+    "wt": "160 lbs",
+    "town": "Ottawa, ON / Cumberland Panthers"
+  },
+  {
+    "no": "5",
+    "name": "Bailey Feltmate",
+    "pos": "LB",
+    "yr": "4",
+    "ht": "6-2",
+    "wt": "220 lbs",
+    "town": "Moncton, NB / Moncton H.S."
+  },
+  {
+    "no": "6",
+    "name": "Hunter Guenard",
+    "pos": "QB",
+    "yr": "4",
+    "ht": "6-1",
+    "wt": "220 lbs",
+    "town": "Calgary, AB / Centennial H.S."
+  },
+  {
+    "no": "7",
+    "name": "Brett Switzer",
+    "pos": "DB",
+    "yr": "4",
+    "ht": "6-2",
+    "wt": "190 lbs",
+    "town": "Oakville, ON / Oakville Trafalgar H.S."
+  },
+  {
+    "no": "8",
+    "name": "Dale Wright",
+    "pos": "RB",
+    "yr": "4",
+    "ht": "5-6",
+    "wt": "195 lbs",
+    "town": "Markham, ON / Brother Andre Secondary School"
+  },
+  {
+    "no": "9",
+    "name": "Benjamin Smith",
+    "pos": "WR",
+    "yr": "2",
+    "ht": "6-1",
+    "wt": "175 lbs",
+    "town": "Bedford, NS / Charles P. Allen H.S."
+  },
+  {
+    "no": "10",
+    "name": "Caleb Ryder",
+    "pos": "WR",
+    "yr": "3",
+    "ht": "6-2",
+    "wt": "185 lbs",
+    "town": "Moncton, NB / Moncton H.S"
+  },
+  {
+    "no": "11",
+    "name": "Jacob Fenchak",
+    "pos": "WR",
+    "yr": "2",
+    "ht": "6-0",
+    "wt": "180 lbs",
+    "town": "Newmarket, ON / York Region Lions"
+  },
+  {
+    "no": "12",
+    "name": "Cordell Hastings",
+    "pos": "WR",
+    "yr": "4",
+    "ht": "6-3",
+    "wt": "195 lbs",
+    "town": "Calgary, AB / Centennial H.S,"
+  },
+  {
+    "no": "13",
+    "name": "Daniel Hashem",
+    "pos": "QB",
+    "yr": "1",
+    "ht": "6-3",
+    "wt": "195 lbs",
+    "town": "Hammonds Plains, NS / C.P. Allen High School"
+  },
+  {
+    "no": "14",
+    "name": "Matthew Gledhill",
+    "pos": "WR",
+    "yr": "3",
+    "ht": "6-1",
+    "wt": "190 lbs",
+    "town": "Ottawa, ON / Gloucester Raiders Club"
+  },
+  {
+    "no": "15",
+    "name": "Duncan Patterson",
+    "pos": "QB",
+    "yr": "2",
+    "ht": "6-0",
+    "wt": "200 lbs",
+    "town": "Bedford, NS / Saint Mary's University"
+  },
+  {
+    "no": "16",
+    "name": "Mason Brown",
+    "pos": "QB",
+    "yr": "2",
+    "ht": "5-10",
+    "wt": "200 lbs",
+    "town": "Stoney Creek, ON / Westshore Rebels Junior Football"
+  },
+  {
+    "no": "17",
+    "name": "Dru Guimond",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "6-3",
+    "wt": "180 lbs",
+    "town": "Riverview, NB / Riverview H.S."
+  },
+  {
+    "no": "18",
+    "name": "Alex Lawrie",
+    "pos": "QB",
+    "yr": "3",
+    "ht": "5-8",
+    "wt": "190 lbs",
+    "town": "Orleans, ON / Cumberland Panthers"
+  },
+  {
+    "no": "19",
+    "name": "Adam Shoemaker",
+    "pos": "QB",
+    "yr": "1",
+    "ht": "6-0",
+    "wt": "195 lbs",
+    "town": "Guelph, ON / Waterlool Region Predators"
+  },
+  {
+    "no": "20",
+    "name": "Emmanuel Beals",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "5-9",
+    "wt": "175 lbs",
+    "town": "Ajax, ON / Vanier College"
+  },
+  {
+    "no": "22",
+    "name": "Cole Estabrooks",
+    "pos": "RB",
+    "yr": "2",
+    "ht": "6-0",
+    "wt": "190 lbs",
+    "town": "Moncton, NB / Bernice McNaughton H.S."
+  },
+  {
+    "no": "23",
+    "name": "Rory Kelly",
+    "pos": "DB",
+    "yr": "4",
+    "ht": "6-2",
+    "wt": "192 lbs",
+    "town": "Moncton, NB / Moncton High School"
+  },
+  {
+    "no": "24",
+    "name": "Julien Poirier-McKiggan",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "5-9",
+    "wt": "173 lbs",
+    "town": "Halifax, NS / Citadel High School"
+  },
+  {
+    "no": "25",
+    "name": "Jayden Simmonds",
+    "pos": "RB",
+    "yr": "1",
+    "ht": "5-10",
+    "wt": "180 lbs",
+    "town": "New Minas, NS / Horton High School"
+  },
+  {
+    "no": "26",
+    "name": "Ewan MacKeen",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "5-10",
+    "wt": "185 lbs",
+    "town": "Halifax, NS / Team Nova Scotia"
+  },
+  {
+    "no": "27",
+    "name": "Luke Johnston",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "5-8",
+    "wt": "161 lbs",
+    "town": "Port Williams, NS / Horton High School"
+  },
+  {
+    "no": "28",
+    "name": "Christopher Cameron-Kogler",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "185 lbs",
+    "town": "Moncton, NB / Moncton High School"
+  },
+  {
+    "no": "29",
+    "name": "Ben George",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "5-9",
+    "wt": "175 lbs",
+    "town": "Moncton, NB / Moncton High School"
+  },
+  {
+    "no": "30",
+    "name": "Matthew Seftel",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "190 lbs",
+    "town": "Toronto, ON / Mississauga Warriors"
+  },
+  {
+    "no": "31",
+    "name": "Cameron Morley",
+    "pos": "RB",
+    "yr": "1",
+    "ht": "5-",
+    "wt": "175 lbs",
+    "town": "Moncton, NB / U18 Team NB"
+  },
+  {
+    "no": "32",
+    "name": "Pieter Blok",
+    "pos": "RB",
+    "yr": "1",
+    "ht": "5-8",
+    "wt": "195 lbs",
+    "town": "Enfield, NS / U18 Team Nova Scotia"
+  },
+  {
+    "no": "33",
+    "name": "Andrew Holmes",
+    "pos": "LB",
+    "yr": "2",
+    "ht": "5-6",
+    "wt": "185 lbs",
+    "town": "Smith Falls, ON / Myers Riders"
+  },
+  {
+    "no": "34",
+    "name": "Leif Henrichs",
+    "pos": "WR",
+    "yr": "2",
+    "ht": "6-0",
+    "wt": "175 lbs",
+    "town": "Colpitts Settlement, NB / Riverview High School"
+  },
+  {
+    "no": "35",
+    "name": "Franck Kemayou",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "6-0",
+    "wt": "195 lbs",
+    "town": "Toronto, ON / Mississauga Warriors"
+  },
+  {
+    "no": "36",
+    "name": "Zach Cormier",
+    "pos": "DL",
+    "yr": "2",
+    "ht": "6-0",
+    "wt": "212 lbs",
+    "town": "Amherst, NS / U18 Team NB"
+  },
+  {
+    "no": "37",
+    "name": "Andre Hyslop",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "5-10",
+    "wt": "176 lbs",
+    "town": "Moncton, NB / U18 Team NB"
+  },
+  {
+    "no": "38",
+    "name": "Ethan Phinney",
+    "pos": "RB",
+    "yr": "1",
+    "ht": "5-9",
+    "wt": "180 lbs",
+    "town": "Porters Lake, NS / -"
+  },
+  {
+    "no": "39",
+    "name": "Darcy Thibaudeau",
+    "pos": "LB",
+    "yr": "2",
+    "ht": "5-9",
+    "wt": "200 lbs",
+    "town": "St. Lazare, QC / John Abbott College"
+  },
+  {
+    "no": "40",
+    "name": "Cullen O'Leary",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "5-9",
+    "wt": "175 lbs",
+    "town": "Halifax, NS / Sackville, NS"
+  },
+  {
+    "no": "41",
+    "name": "Conor Jacobs",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "175 lbs",
+    "town": "Hammonds Plains, NS / C.P. Allen High School"
+  },
+  {
+    "no": "42",
+    "name": "Lian Young",
+    "pos": "DL",
+    "yr": "1",
+    "ht": "6-0",
+    "wt": "200 lbs",
+    "town": "Halifax, NS / Citadel High School"
+  },
+  {
+    "no": "43",
+    "name": "Ethan Mathieu",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "5-7",
+    "wt": "150 lbs",
+    "town": "Eastern Passage, NS / Auburn H.S."
+  },
+  {
+    "no": "44",
+    "name": "Jared McLeod",
+    "pos": "DL",
+    "yr": "1",
+    "ht": "6-0",
+    "wt": "215 lbs",
+    "town": "Calgary, AB / Centennial High School"
+  },
+  {
+    "no": "45",
+    "name": "Thomas Tzagarakis",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "5-9",
+    "wt": "190 lbs",
+    "town": "Halifax, NS / Citadel High School"
+  },
+  {
+    "no": "46",
+    "name": "Jamarcus Williams",
+    "pos": "DB",
+    "yr": "2",
+    "ht": "6-0",
+    "wt": "194 lbs",
+    "town": "Ottawa, ON / Cumberland Panthers - OVFL"
+  },
+  {
+    "no": "47",
+    "name": "Graham Nightingale",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "6-0",
+    "wt": "185 lbs",
+    "town": "Ottawa, ON / Ottawa Valley Silver Seven"
+  },
+  {
+    "no": "48",
+    "name": "Aidan Cowan",
+    "pos": "DL",
+    "yr": "3",
+    "ht": "5-8",
+    "wt": "200 lbs",
+    "town": "Ottawa, ON / Cumberland Panthers - OVFL"
+  },
+  {
+    "no": "49",
+    "name": "Kyle Chappus",
+    "pos": "DL",
+    "yr": "2",
+    "ht": "6-2",
+    "wt": "225 lbs",
+    "town": "Black River, NS / Horton High School"
+  },
+  {
+    "no": "50",
+    "name": "Ethan Sperling",
+    "pos": "DL",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "220 lbs",
+    "town": "Highbury, NS / Horton High School"
+  },
+  {
+    "no": "51",
+    "name": "Kameron Bell",
+    "pos": "LB",
+    "yr": "2",
+    "ht": "6-0",
+    "wt": "185 lbs",
+    "town": "Moncton, NB / Bernice MacNaughton High School"
+  },
+  {
+    "no": "52",
+    "name": "Evan Holmes",
+    "pos": "DL",
+    "yr": "3",
+    "ht": "6-2",
+    "wt": "225 lbs",
+    "town": "Wolfville, NS / Horton High School"
+  },
+  {
+    "no": "53",
+    "name": "Alex Smith",
+    "pos": "OL",
+    "yr": "2",
+    "ht": "6-3",
+    "wt": "270 lbs",
+    "town": "Moncton, NB / Harrison Trimble High School"
+  },
+  {
+    "no": "54",
+    "name": "Anderson Recker",
+    "pos": "DL",
+    "yr": "2",
+    "ht": "6-1",
+    "wt": "235 lbs",
+    "town": "Stillwater Lake, NS / Team Canada U19 IFAF"
+  },
+  {
+    "no": "55",
+    "name": "Pat Marsden",
+    "pos": "DL",
+    "yr": "2",
+    "ht": "5-8",
+    "wt": "270 lbs",
+    "town": "Toronto, ON / Trinity College School"
+  },
+  {
+    "no": "56",
+    "name": "Ethan Dunnett",
+    "pos": "OL",
+    "yr": "1",
+    "ht": "6-3",
+    "wt": "290 lbs",
+    "town": "Moncton, NB / Moncton High School"
+  },
+  {
+    "no": "57",
+    "name": "Spencer Richard",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "5-10",
+    "wt": "213 lbs",
+    "town": "Wolfville, NS / Horton High School"
+  },
+  {
+    "no": "58",
+    "name": "Brendan Jordahl",
+    "pos": "OL",
+    "yr": "1",
+    "ht": "6-4",
+    "wt": "340 lbs",
+    "town": "Fountain Valley, CA / Orange Coast College"
+  },
+  {
+    "no": "59",
+    "name": "Noah Lee",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "210 lbs",
+    "town": "Hammonds Plains, NS / C.P. Allen High School"
+  },
+  {
+    "no": "60",
+    "name": "Benjamin Brumm",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "5-9",
+    "wt": "205 lbs",
+    "town": "Dartmouth, NS / Dartmouth High School"
+  },
+  {
+    "no": "61",
+    "name": "Aidan O'Rourke",
+    "pos": "OL",
+    "yr": "1",
+    "ht": "6-0",
+    "wt": "300 lbs",
+    "town": "Stanhope, PE / Moncton High School"
+  },
+  {
+    "no": "62",
+    "name": "Jamie Fortune",
+    "pos": "OL",
+    "yr": "2",
+    "ht": "6-4",
+    "wt": "255 lbs",
+    "town": "Oliver, BC / Okanagan Sun - CJFL"
+  },
+  {
+    "no": "63",
+    "name": "Trey Russell-Johnson",
+    "pos": "OL",
+    "yr": "4",
+    "ht": "6-1",
+    "wt": "270 lbs",
+    "town": "Kanata, ON / Ottawa Sooners"
+  },
+  {
+    "no": "64",
+    "name": "Isaiah Hickson",
+    "pos": "OL",
+    "yr": "2",
+    "ht": "6-0",
+    "wt": "265 lbs",
+    "town": "Ottawa, ON / Cumberland Panthers"
+  },
+  {
+    "no": "65",
+    "name": "Oliver Grant",
+    "pos": "OL",
+    "yr": "4",
+    "ht": "6-4",
+    "wt": "275 lbs",
+    "town": "Halifax, NS / Citadel High School"
+  },
+  {
+    "no": "66",
+    "name": "Mitchell Miller",
+    "pos": "OL",
+    "yr": "1",
+    "ht": "5-9",
+    "wt": "270 lbs",
+    "town": "Port Williams, NS / Horton High School"
+  },
+  {
+    "no": "67",
+    "name": "Tristan Murray",
+    "pos": "OL",
+    "yr": "4",
+    "ht": "6-2",
+    "wt": "190 lbs",
+    "town": "Kamloops, BC / Kamloops Broncos - CJFL"
+  },
+  {
+    "no": "68",
+    "name": "Brandon Wilson",
+    "pos": "OL",
+    "yr": "2",
+    "ht": "6-2",
+    "wt": "320 lbs",
+    "town": "Nassau, Bahamas / Bishop's University"
+  },
+  {
+    "no": "69",
+    "name": "Nick Pilichos",
+    "pos": "OL",
+    "yr": "1",
+    "ht": "6-3",
+    "wt": "235 lbs",
+    "town": "Bedford, NS / Team NS U18"
+  },
+  {
+    "no": "75",
+    "name": "Shelton Williams",
+    "pos": "OL",
+    "yr": "5",
+    "ht": "6-4",
+    "wt": "270 lbs",
+    "town": "Nassau, Bahamas / Holland College"
+  },
+  {
+    "no": "77",
+    "name": "Matthew Holmes",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "5-9",
+    "wt": "175 lbs",
+    "town": "Wolfville, NS / Horton High School"
+  },
+  {
+    "no": "80",
+    "name": "Will McNally",
+    "pos": "WR",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "185 lbs",
+    "town": "Moncton, NB / Bernice MacNaughton High School"
+  },
+  {
+    "no": "81",
+    "name": "Jose Angulo",
+    "pos": "WR",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "200 lbs",
+    "town": "Halifax, NS / Citadel High School"
+  },
+  {
+    "no": "82",
+    "name": "William Dallaire",
+    "pos": "WR",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "215 lbs",
+    "town": "St. Georges, QC / Beauce-Appalaches CEGEP"
+  },
+  {
+    "no": "83",
+    "name": "Max Kohan",
+    "pos": "RB",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "225 lbs",
+    "town": "Calgary, AB / U18 Team Alberta"
+  },
+  {
+    "no": "84",
+    "name": "Cameron Wall",
+    "pos": "RB",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "200 lbs",
+    "town": "Moncton, NB / Moncton High School"
+  },
+  {
+    "no": "85",
+    "name": "Jacob Guy",
+    "pos": "WR",
+    "yr": "1",
+    "ht": "6-0",
+    "wt": "170 lbs",
+    "town": "Bedford, NS / C.P. Allen High School"
+  },
+  {
+    "no": "86",
+    "name": "Brady Newcomb",
+    "pos": "WR",
+    "yr": "1",
+    "ht": "6-1",
+    "wt": "170 lbs",
+    "town": "Memramcook, NB / Moncton Mustangs MFL"
+  },
+  {
+    "no": "87",
+    "name": "Brant Guimond",
+    "pos": "WR",
+    "yr": "1",
+    "ht": "5-11",
+    "wt": "180 lbs",
+    "town": "Riverview, NB / Riverview High School"
+  },
+  {
+    "no": "88",
+    "name": "Ethan Kimura",
+    "pos": "WR",
+    "yr": "1",
+    "ht": "5-8",
+    "wt": "175 lbs",
+    "town": "Tokyo, Japan / Dr. EP Scarrett High School"
+  },
+  {
+    "no": "89",
+    "name": "Scott Perry",
+    "pos": "WR",
+    "yr": "1",
+    "ht": "6-0",
+    "wt": "175 lbs",
+    "town": "Fredericton, NB / Leo Hayes High School"
+  },
+  {
+    "no": "90",
+    "name": "Will Russell",
+    "pos": "DL",
+    "yr": "1",
+    "ht": "6-2",
+    "wt": "250 lbs",
+    "town": "Quispamsis, NB / Kennebecasis Valley High School"
+  },
+  {
+    "no": "93",
+    "name": "Jacob Shannon",
+    "pos": "DL",
+    "yr": "1",
+    "ht": "6-2",
+    "wt": "195 lbs",
+    "town": "Truro, NS / Cobequid Educational Centre"
+  },
+  {
+    "no": "94",
+    "name": "Mitchell Karel",
+    "pos": "LB",
+    "yr": "1",
+    "ht": "5-8",
+    "wt": "235 lbs",
+    "town": "Napanee, ON / Myers Riders OVFL"
+  },
+  {
+    "no": "95",
+    "name": "Angelo Gentile",
+    "pos": "DL",
+    "yr": "3",
+    "ht": "5-10",
+    "wt": "290 lbs",
+    "town": "Halifax, NS / Halifax West High School"
+  },
+  {
+    "no": "98",
+    "name": "Surya Ranganathan",
+    "pos": "DB",
+    "yr": "1",
+    "ht": "5-10",
+    "wt": "160 lbs",
+    "town": "Calgary, AB / Rundle College High School"
+  },
+  {
+    "no": "99",
+    "name": "Thomas Grant",
+    "pos": "DL",
+    "yr": "4",
+    "ht": "6-5",
+    "wt": "290 lbs",
+    "town": "Halifax, NS / Citadel High School"
+  }
+]

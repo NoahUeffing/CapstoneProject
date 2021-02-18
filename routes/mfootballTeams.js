@@ -54,6 +54,7 @@ router.get("/", async (req, res) => {
 // @route   PUT api/mfootballTeams
 // @desc    Update Acadia Team Stats
 // @acess   Public
+// Not currently in use.
 router.put("/", (req, res) => {
   res.send("Update football team");
 });
@@ -61,8 +62,14 @@ router.put("/", (req, res) => {
 // @route   DELETE api/mfootballTeams
 // @desc    DELETE Acadia Team Stats
 // @acess   Public
-router.delete("/", (req, res) => {
-  res.send("Delete football team");
+router.delete("/", async (req, res) => {
+  try {
+    await MFootballTeam.deleteMany({});
+    res.send("Standings deleted");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 module.exports = router;

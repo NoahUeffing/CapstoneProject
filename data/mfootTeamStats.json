@@ -1,1 +1,52 @@
-[{"team":"ACADIA","gp":"8","winLoss":"8-0","pct":"1.000","gf":"309","ga":"165","l10":"8-0","streak":"Won 8"},{"team":"BISHOP'S","gp":"8","winLoss":"4-4","pct":"0.500","gf":"150","ga":"210","l10":"4-4","streak":"Lost 1"},{"team":"MOUNT ALLISON","gp":"8","winLoss":"3-5","pct":"0.375","gf":"194","ga":"161","l10":"3-5","streak":"Lost 1"},{"team":"SAINT MARY'S","gp":"8","winLoss":"3-5","pct":"0.375","gf":"159","ga":"190","l10":"3-5","streak":"Lost 4"},{"team":"STFX","gp":"8","winLoss":"2-6","pct":"0.250","gf":"128","ga":"214","l10":"2-6","streak":"Won 1"}]
+[
+  {
+    "team": "ACADIA",
+    "gp": "8",
+    "winLoss": "8-0",
+    "pct": "1.000",
+    "gf": "309",
+    "ga": "165",
+    "l10": "8-0",
+    "streak": "Won 8"
+  },
+  {
+    "team": "BISHOP'S",
+    "gp": "8",
+    "winLoss": "4-4",
+    "pct": "0.500",
+    "gf": "150",
+    "ga": "210",
+    "l10": "4-4",
+    "streak": "Lost 1"
+  },
+  {
+    "team": "MOUNT ALLISON",
+    "gp": "8",
+    "winLoss": "3-5",
+    "pct": "0.375",
+    "gf": "194",
+    "ga": "161",
+    "l10": "3-5",
+    "streak": "Lost 1"
+  },
+  {
+    "team": "SAINT MARY'S",
+    "gp": "8",
+    "winLoss": "3-5",
+    "pct": "0.375",
+    "gf": "159",
+    "ga": "190",
+    "l10": "3-5",
+    "streak": "Lost 4"
+  },
+  {
+    "team": "STFX",
+    "gp": "8",
+    "winLoss": "2-6",
+    "pct": "0.250",
+    "gf": "128",
+    "ga": "214",
+    "l10": "2-6",
+    "streak": "Won 1"
+  }
+]

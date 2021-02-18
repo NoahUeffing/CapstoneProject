@@ -1,6 +1,7 @@
 // All routes for the /api/mfootballPlayers endpoint
 const express = require("express");
 const router = express.Router();
+
 const { validationResult } = require("express-validator");
 
 const MFootballPlayer = require("../models/MFootballPlayer");
@@ -52,15 +53,22 @@ router.get("/", async (req, res) => {
 // @route   PUT api/mfootballPlayers
 // @desc    Update the Acadia football roster
 // @acess   Public
+// Not currently in use.
 router.put("/", (req, res) => {
-  res.send("Update Acadia football player");
+  res.send("Update Acadia football roster");
 });
 
 // @route   DELETE api/mfootballPlayers
 // @desc    DELETE the Acadia football roster
 // @acess   Public
-router.delete("/", (req, res) => {
-  res.send("DELETE Acadia football player");
+router.delete("/", async (req, res) => {
+  try {
+    await MFootballPlayer.deleteMany({});
+    res.send("Roster deleted");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 module.exports = router;
