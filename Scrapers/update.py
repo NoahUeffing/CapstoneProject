@@ -1,16 +1,38 @@
 import requests
+import time
 
 
 def deleteFromDB(db):
-    r = requests.delete('http://localhost:5000/api/' + db, timeout=5)
+    count = 0
+    while count < 3:
+        try:
+            r = requests.delete('http://localhost:5000/api/' + db, timeout=5)
+            break
+        except:
+            count = count+1
+            print("Connection Refused")
+            print("Trying again")
+            time.sleep(2)
+            continue
     print('Result for DELETE request to ' + db + ': ' + r.text)
 
 
 def postToDB(fp, db):
+    count = 0
     contents = open('../data/' + fp, 'rb').read()
     headers = {'content-type': 'application/json'}
-    r = requests.post('http://localhost:5000/api/' + db,
-                      data=contents, headers=headers, timeout=5)
+    while count < 3:
+        try:
+            r = requests.post('http://localhost:5000/api/' + db,
+                              data=contents, headers=headers, timeout=5)
+            break
+        except:
+            count = count+1
+            print("Connection Refused")
+            print("Trying again")
+            time.sleep(2)
+            continue
+
     print("Result for " + fp + " POST request: " + r.text)
 
 

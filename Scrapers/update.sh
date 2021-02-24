@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-echo "Updating Database"
-python update.py
+
 echo "Running mbasketControlStats.js"
 node mbasketControlStats.js
 echo "Running mbasketRoster.js"
@@ -65,3 +64,5 @@ echo "Running wvolleySchedule.js"
 node wvolleySchedule.js
 echo "Running wvolleyTeamStats.js"
 node wvolleyTeamStats.js
+echo "Updating Database"
+python update.py
