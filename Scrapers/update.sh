@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+echo "Updating Database"
+python update.py
 echo "Running mbasketControlStats.js"
 node mbasketControlStats.js
 echo "Running mbasketRoster.js"
