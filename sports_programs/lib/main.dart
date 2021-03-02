@@ -29,6 +29,18 @@ class TeamNavigationState extends State<TeamNavigation> {
     'Axemen and Axewomen Swimming',
     'Axewomen Volleyball'
   ];
+  final iconsList = [
+    Icons.sports_basketball,
+    Icons.sports_basketball,
+    Icons.directions_run,
+    Icons.sports_football,
+    Icons.sports_hockey,
+    Icons.sports_rugby,
+    Icons.sports_soccer,
+    Icons.sports_soccer,
+    Icons.pool,
+    Icons.sports_volleyball
+  ];
   final colorCodes = [Colors.lightBlue[900], Colors.red[900]];
 
   Widget _buildList() {
@@ -40,11 +52,21 @@ class TeamNavigationState extends State<TeamNavigation> {
           height: 65,
           color: colorCodes[index % 2],
           child: Center(
-              child: Text('${sports[index]}',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: 18))),
+              child: RichText(
+            text: TextSpan(
+              children: [
+                WidgetSpan(
+                  child: Icon(iconsList[index], size: 22, color: Colors.white),
+                ),
+                TextSpan(
+                    text: ' ${sports[index]}',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18)),
+              ],
+            ),
+          )),
         );
       },
       separatorBuilder: (BuildContext context, int index) => const Divider(),
