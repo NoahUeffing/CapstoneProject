@@ -17,91 +17,37 @@ class TeamNavigation extends StatefulWidget {
 }
 
 class TeamNavigationState extends State<TeamNavigation> {
+  final sports = [
+    'Axemen Basketball',
+    'Axewomen Basketball',
+    'Axewomen Cross Country',
+    'Axemen Football',
+    'Axemen Hockey',
+    'Axewomen Rugby',
+    'Axemen Soccer',
+    'Axewomen Soccer',
+    'Axemen and Axewomen Swimming',
+    'Axewomen Volleyball'
+  ];
+  final colorCodes = [Colors.lightBlue[900], Colors.red[900]];
+
   Widget _buildList() {
-    return ListView(
-      padding: const EdgeInsets.all(8),
-      children: <Widget>[
-        Container(
-          height: 80,
-          color: Colors.lightBlue[900],
-          child: const Center(
-              child: Text('Axemen Basketball',
+    return ListView.separated(
+      padding: const EdgeInsets.all(20),
+      itemCount: sports.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          height: 65,
+          color: colorCodes[index % 2],
+          child: Center(
+              child: Text('${sports[index]}',
                   style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-        Container(
-          height: 80,
-          color: Colors.red[900],
-          child: const Center(
-              child: Text('Axewomen Basketball',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-        Container(
-          height: 80,
-          color: Colors.lightBlue[900],
-          child: const Center(
-              child: Text('Axewomen Cross Country',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-        Container(
-          height: 80,
-          color: Colors.red[900],
-          child: const Center(
-              child: Text('Axemen Football',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-        Container(
-          height: 80,
-          color: Colors.lightBlue[900],
-          child: const Center(
-              child: Text('Axemen Hockey',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-        Container(
-          height: 80,
-          color: Colors.red[900],
-          child: const Center(
-              child: Text('Axewomen Rugby',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-        Container(
-          height: 80,
-          color: Colors.lightBlue[900],
-          child: const Center(
-              child: Text('Axemen Soccer',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-        Container(
-          height: 80,
-          color: Colors.red[900],
-          child: const Center(
-              child: Text('Axewomen Soccer',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-        Container(
-          height: 80,
-          color: Colors.lightBlue[900],
-          child: const Center(
-              child: Text('Axemen and Axewomen Swimming',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-        Container(
-          height: 80,
-          color: Colors.red[900],
-          child: const Center(
-              child: Text('Axewomen Volleyball',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold))),
-        ),
-      ],
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 18))),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }
 
