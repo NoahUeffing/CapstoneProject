@@ -9,11 +9,40 @@ class Swimming extends StatefulWidget {
 class SwimmingState extends State<Swimming> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Choose a Swimming Event"),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.calendar_today)),
+              Tab(text: "Acadia Roster"),
+            ],
+          ),
+          title: RichText(
+            text: TextSpan(
+              children: [
+                WidgetSpan(
+                  child: Icon(Icons.pool, size: 22, color: Colors.white),
+                ),
+                TextSpan(
+                  text: " Acadia Swimming",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 22),
+                ),
+              ],
+            ),
+          ),
+        ),
+        /*body: TabBarView(
+          children: [
+            ,
+            ,
+          ],
+        ),*/
       ),
-      body: Center(),
     );
   }
 }

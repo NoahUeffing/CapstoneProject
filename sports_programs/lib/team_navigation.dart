@@ -25,7 +25,7 @@ class TeamNavigationState extends State<TeamNavigation> {
     'Axewomen Rugby',
     'Axemen Soccer',
     'Axewomen Soccer',
-    'Axemen and Axewomen Swimming',
+    'Axemen & Axewomen Swimming',
     'Axewomen Volleyball'
   ];
   final iconsList = [
@@ -66,7 +66,7 @@ class TeamNavigationState extends State<TeamNavigation> {
           child: Center(
               child: TextButton.icon(
                   icon: Icon(iconsList[index], size: 22, color: Colors.white),
-                  label: Text(' ${sports[index]}',
+                  label: Text('${sports[index]}',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
