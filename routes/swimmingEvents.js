@@ -17,11 +17,12 @@ router.post("/", (req, res) => {
   }
 
   for (var gameItem in req.body) {
-    const { date, teams, event, results } = req.body[gameItem];
+    const { date, teams, notes, event, results } = req.body[gameItem];
     try {
       swimmingEvent = new SwimmingEvent({
         date,
         teams,
+        notes,
         event,
         results,
       });

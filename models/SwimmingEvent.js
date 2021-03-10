@@ -7,11 +7,14 @@ const SwimmingEventSchema = mongoose.Schema({
   },
   teams: {
     type: String,
-    required: true,
+    //required: true,
+  },
+  notes: {
+    type: String,
   },
   event: {
     type: String,
-    required: true,
+    //required: true,
   },
   results: {
     type: String,

@@ -15,13 +15,16 @@ const success = chalk.keyword("green");
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
     await page.goto(
-      `https://www.acadiaathletics.ca/sports/swim/2019-20/schedule`
+      `https://www.acadiaathletics.ca/sports/swim/2020-21/schedule`
     );
     await page.waitForSelector(
       "#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_date"
     );
     await page.waitForSelector(
       "#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_team.e_awayteam > span"
+    );
+    await page.waitForSelector(
+      "#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_notes"
     );
     await page.waitForSelector(
       "#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_neutralsite"
@@ -37,6 +40,9 @@ const success = chalk.keyword("green");
       var teamsList = document.querySelectorAll(
         `#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_team.e_awayteam > span`
       );
+      var notesList = document.querySelectorAll(
+        `#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_notes`
+      );
       var eventList = document.querySelectorAll(
         `#schedule-list > div.schedule-content.clearfix > table > tbody > tr > td.e_neutralsite`
       );
@@ -49,6 +55,7 @@ const success = chalk.keyword("green");
         scheduleArray[i] = {
           date: dateList[i].innerText.trim(),
           teams: teamsList[i].innerText.trim(),
+          notes: notesList[i].innerText.trim(),
           event: eventList[i].innerText.trim(),
           results: resultList[i].innerText.trim(),
         };
