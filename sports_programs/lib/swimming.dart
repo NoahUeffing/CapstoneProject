@@ -123,26 +123,22 @@ class SwimmingState extends State<Swimming> {
                 padding: const EdgeInsets.all(20),
                 itemCount: yourGames.length,
                 itemBuilder: (BuildContext context, int index) {
-                  if (yourGames[index].date is String) {
-                    return Container(
-                        height: 110,
-                        child: Text(
-                            yourGames[index].date +
-                                '\n' +
-                                yourGames[index].notes +
-                                '\nTeam(s): ' +
-                                yourGames[index].teams +
-                                '\n' +
-                                yourGames[index].event +
-                                '\nResult: ' +
-                                yourGames[index].results,
-                            style: TextStyle(
-                              fontSize: 18,
-                              //fontWeight: FontWeight.bold,
-                            )));
-                  } else {
-                    return Container(height: 85, child: Text("Ass"));
-                  }
+                  return Container(
+                      height: 110,
+                      child: Text(
+                          yourGames[index].date +
+                              '\n' +
+                              yourGames[index].notes +
+                              '\nTeam(s): ' +
+                              yourGames[index].teams +
+                              '\n' +
+                              yourGames[index].event +
+                              '\n' +
+                              yourGames[index].results,
+                          style: TextStyle(
+                            fontSize: 18,
+                            //fontWeight: FontWeight.bold,
+                          )));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(),

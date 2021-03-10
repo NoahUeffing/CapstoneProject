@@ -123,7 +123,7 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
                           yourGames[index].date +
                               '\n' +
                               yourGames[index].event +
-                              '\nResult: ' +
+                              '\n' +
                               yourGames[index].result,
                           style: TextStyle(
                             fontSize: 18,
