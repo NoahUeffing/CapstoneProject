@@ -15,7 +15,7 @@ const success = chalk.keyword("green");
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
     await page.goto(
-      `https://www.acadiaathletics.ca/sports/mbkb/2019-20/schedule`
+      `https://www.acadiaathletics.ca/sports/mbkb/2020-21/schedule`
     );
     await page.waitForSelector(
       "#mainbody > div > div > div:nth-child(1) > div > div > div > div.date"
