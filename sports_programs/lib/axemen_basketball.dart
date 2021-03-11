@@ -4,9 +4,19 @@ import 'globals.dart' as globals;
 import 'dart:async';
 import 'dart:convert';
 import 'package:intl/intl.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'dart:io' show Platform;
+import './presentation/my_flutter_app_icons.dart';
 
 Future<Roster> fetchRoster() async {
-  final response = await http.get(globals.api + '/mbasketPlayers');
+  var api = '';
+  if (Platform.isAndroid) {
+    api = globals.androidApi;
+  } else {
+    api = globals.iosApi;
+  }
+
+  final response = await http.get(api + '/mbasketPlayers');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -20,7 +30,13 @@ Future<Roster> fetchRoster() async {
 }
 
 Future<Schedule> fetchSchedule() async {
-  final response = await http.get(globals.api + '/mbasketGames');
+  var api = '';
+  if (Platform.isAndroid) {
+    api = globals.androidApi;
+  } else {
+    api = globals.iosApi;
+  }
+  final response = await http.get(api + '/mbasketGames');
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
@@ -33,7 +49,13 @@ Future<Schedule> fetchSchedule() async {
 }
 
 Future<Standings> fetchStandings() async {
-  final response = await http.get(globals.api + '/mbasketTeams');
+  var api = '';
+  if (Platform.isAndroid) {
+    api = globals.androidApi;
+  } else {
+    api = globals.iosApi;
+  }
+  final response = await http.get(api + '/mbasketTeams');
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
@@ -176,12 +198,107 @@ class AxemenBasketballState extends State<AxemenBasketball> {
   Future<Roster> futureRoster;
   Future<Schedule> futureSchedule;
   Future<Standings> futureStandings;
+
   @override
   void initState() {
     super.initState();
     futureRoster = fetchRoster();
     futureSchedule = fetchSchedule();
     futureStandings = fetchStandings();
+    //if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+  }
+
+  final urlList = [
+    'https://www.gocapersgo.ca/sports/mbkb/2020-21/roster',
+    'https://daltigers.ca/sports/mbkb/2020-21/roster',
+    'https://www.goseahawks.ca/sports/mbkb/2019-20/roster',
+    'https://goredsgo.ca/sports/mbkb/2019-20/roster',
+    'https://www.gopanthersgo.ca/sports/mbkb/2020-21/roster',
+    'https://www.smuhuskies.ca/sports/mbkb/2020-21/roster',
+    'https://www.goxgo.ca/sports/mbkb/2020-21/roster',
+  ];
+
+  final colorsList = [
+    Colors.orange[900],
+    Colors.black,
+    Colors.pink[900],
+    Colors.redAccent[700],
+    Colors.green[800],
+    Colors.pink[900],
+    Colors.blue[900],
+  ];
+
+  final iconsList = [
+    MyFlutterApp.cbu,
+    MyFlutterApp.dal,
+    MyFlutterApp.mun,
+    MyFlutterApp.unb,
+    MyFlutterApp.upei,
+    MyFlutterApp.smu,
+    MyFlutterApp.stfx,
+  ];
+
+  final teamsList = [
+    'Cape Breton',
+    'Dalhousie',
+    'Memorial',
+    'UNB',
+    'UPEI',
+    "Saint Mary's",
+    'STFX'
+  ];
+
+  Widget _buildOpponents() {
+    return ListView.separated(
+      padding: const EdgeInsets.all(20),
+      itemCount: urlList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          height: 65,
+          color: colorsList[index],
+          child: Center(
+              child: TextButton.icon(
+                  icon: Icon(iconsList[index], size: 22, color: Colors.white),
+                  label: Text(' ' + teamsList[index],
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 18)),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Scaffold(
+                              appBar: AppBar(
+                                title: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      WidgetSpan(
+                                        child: Icon(iconsList[index],
+                                            size: 22, color: Colors.white),
+                                      ),
+                                      TextSpan(
+                                        text:
+                                            "  " + teamsList[index] + " Roster",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                            fontSize: 22),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              body: WebView(
+                                initialUrl: urlList[index],
+                                javascriptMode: JavascriptMode.unrestricted,
+                              )),
+                        ));
+                  })),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
+    );
   }
 
   Widget _buildList() {
@@ -264,7 +381,11 @@ class AxemenBasketballState extends State<AxemenBasketball> {
             return CircularProgressIndicator();
           },
         ),
-        Text("Opponent Roster"),
+        /*WebView(
+          initialUrl: 'https://daltigers.ca/sports/mbkb/2020-21/roster',
+          javascriptMode: JavascriptMode.unrestricted,
+        ),*/
+        _buildOpponents(),
         FutureBuilder<Standings>(
           future: futureStandings,
           builder: (context, snapshot) {

@@ -4,9 +4,16 @@ import 'globals.dart' as globals;
 import 'dart:async';
 import 'dart:convert';
 import 'package:intl/intl.dart';
+import 'dart:io' show Platform;
 
 Future<Roster> fetchRoster() async {
-  final response = await http.get(globals.api + '/swimmers');
+  var api = '';
+  if (Platform.isAndroid) {
+    api = globals.androidApi;
+  } else {
+    api = globals.iosApi;
+  }
+  final response = await http.get(api + '/swimmers');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -20,7 +27,13 @@ Future<Roster> fetchRoster() async {
 }
 
 Future<Schedule> fetchSchedule() async {
-  final response = await http.get(globals.api + '/swimmingEvents');
+  var api = '';
+  if (Platform.isAndroid) {
+    api = globals.androidApi;
+  } else {
+    api = globals.iosApi;
+  }
+  final response = await http.get(api + '/swimmingEvents');
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.

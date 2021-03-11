@@ -1,3 +1,4 @@
 library my_prj.globals;
 
-const api = "http://localhost:5000/api";
+const iosApi = "http://localhost:5000/api";
+const androidApi = "http://10.0.2.2:5000/api";
