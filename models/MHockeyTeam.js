@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create team entries into the mhockeyteams collection
 const MHockeyTeamSchema = mongoose.Schema({
   team: {
     type: String,

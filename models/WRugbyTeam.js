@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create team entries into the wrugbyteams collection
 const WRugbyTeamSchema = mongoose.Schema({
   team: {
     type: String,

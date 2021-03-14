@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create player stats entries into the mhockeyplayerstats collection
 const MHockeyPlayerStatsSchema = mongoose.Schema({
   Number: {
     type: Number,

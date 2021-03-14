@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create game entries into the mfootballgames collection
 const MFootballGameSchema = mongoose.Schema({
   date: {
     type: Date,

@@ -12,7 +12,9 @@
 ///       - asset: fonts/MyFlutterApp.ttf
 ///
 ///
-///
+/// Contains the icons for each AUS Team
+/// Accessed by importing './presentation/my_flutter_app_icons.dart' into a dart file
+/// and then using MyflutterApp.<univerity> (ex. MyFlutterApp.acadia for Acadia's icon)
 import 'package:flutter/widgets.dart';
 
 class MyFlutterApp {

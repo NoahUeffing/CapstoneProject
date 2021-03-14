@@ -1,4 +1,4 @@
-// Sets up express server on either port given by enviornment varibale or port 5000.
+// Sets up express server on either port given by enviornment variable or port 5000.
 const express = require("express");
 const connectDB = require("./config/db");
 

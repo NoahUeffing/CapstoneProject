@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create event entries into the swimmingevents collection
 const SwimmingEventSchema = mongoose.Schema({
   date: {
     type: Date,

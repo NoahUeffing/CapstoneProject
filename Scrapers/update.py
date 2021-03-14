@@ -1,9 +1,15 @@
 import requests
 import time
 
+# This file is used to update data in all mongodb collections using the json files stored in the /data directory.
+# It is called upon by update.sh so that after all scrapers are ran, the database can be updated.
+
+# Function to delete data from an input collection (db) using the api
+
 
 def deleteFromDB(db):
     count = 0
+    # If connection refused, try again after 2 seconds, otherwise delete the data
     while count < 3:
         try:
             r = requests.delete('http://localhost:5000/api/' + db, timeout=5)
@@ -16,11 +22,15 @@ def deleteFromDB(db):
             continue
     print('Result for DELETE request to ' + db + ': ' + r.text)
 
+# Function to post json data contained in fp to an input collection (db) using the api
+
 
 def postToDB(fp, db):
     count = 0
     contents = open('../data/' + fp, 'rb').read()
+    # Required header for posting json
     headers = {'content-type': 'application/json'}
+    # If connection refused, try again after 2 seconds, otherwise post the data
     while count < 3:
         try:
             r = requests.post('http://localhost:5000/api/' + db,
@@ -36,6 +46,7 @@ def postToDB(fp, db):
     print("Result for " + fp + " POST request: " + r.text)
 
 
+# Delete old data and post new data to each collection
 deleteFromDB("mbasketControlStats")
 postToDB("mbasketControlStats.json", "mbasketControlStats")
 print()

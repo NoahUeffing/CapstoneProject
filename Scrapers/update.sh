@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This script runs all web scrapers to update the json found in the 'data' directory,
+# then runs update.py to update the database with this new data.
+
 echo "Running mbasketControlStats.js"
 node mbasketControlStats.js
 echo "Running mbasketRoster.js"

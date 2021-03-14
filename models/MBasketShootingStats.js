@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create shooting stats entries into the mbasketshootingstats collection
 const MBasketShootingStatsSchema = mongoose.Schema({
   Number: {
     type: Number,

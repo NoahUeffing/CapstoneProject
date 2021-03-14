@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create game entries into the mbasketgames collection
 const MBasketGameSchema = mongoose.Schema({
   date: {
     type: Date,

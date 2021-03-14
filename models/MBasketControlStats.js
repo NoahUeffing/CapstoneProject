@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create control stats entries into the mbasketcontrolstats collection
 const MBasketControlStatsSchema = mongoose.Schema({
   Number: {
     type: Number,

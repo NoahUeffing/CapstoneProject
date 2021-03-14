@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create player entries into the wvolleyplayers collection
 const WVolleyPlayerSchema = mongoose.Schema({
   no: {
     type: String,

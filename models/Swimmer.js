@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create swimmer entries into the swimmers collection
 const SwimmerSchema = mongoose.Schema({
   name: {
     type: String,

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create player entries into the msoccerplayers collection
 const MSoccerPlayerSchema = mongoose.Schema({
   no: {
     type: Number,

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Model used to create teams entries into the wbasketteams collection
 const WBasketTeamSchema = mongoose.Schema({
   team: {
     type: String,
