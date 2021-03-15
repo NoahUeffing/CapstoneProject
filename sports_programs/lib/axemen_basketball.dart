@@ -78,7 +78,7 @@ class Roster {
   final List<Player> players;
   Roster({this.players});
   factory Roster.fromJson(List<dynamic> parsedJson) {
-    List<Player> players = new List<Player>();
+    List<Player> players = [];
     players = parsedJson.map((i) => Player.fromJson(i)).toList();
     return new Roster(players: players);
   }
@@ -89,7 +89,7 @@ class Schedule {
   final List<Game> games;
   Schedule({this.games});
   factory Schedule.fromJson(List<dynamic> parsedJson) {
-    List<Game> games = new List<Game>();
+    List<Game> games = [];
     games = parsedJson.map((i) => Game.fromJson(i)).toList();
     return new Schedule(games: games);
   }
@@ -100,7 +100,7 @@ class Standings {
   final List<Team> teams;
   Standings({this.teams});
   factory Standings.fromJson(List<dynamic> parsedJson) {
-    List<Team> teams = new List<Team>();
+    List<Team> teams = [];
     teams = parsedJson.map((i) => Team.fromJson(i)).toList();
     return new Standings(teams: teams);
   }
