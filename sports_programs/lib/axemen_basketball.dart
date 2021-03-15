@@ -8,6 +8,10 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:io' show Platform;
 import './presentation/my_flutter_app_icons.dart';
 
+// This file creates the Axemen Basketball page with tabs for
+// schedule, Acadia roster, opponents roster, and AUS standings
+
+// Get roster information from the api
 Future<Roster> fetchRoster() async {
   var api = '';
   if (Platform.isAndroid) {
@@ -29,6 +33,7 @@ Future<Roster> fetchRoster() async {
   }
 }
 
+// Get schedule inforamtion from the api
 Future<Schedule> fetchSchedule() async {
   var api = '';
   if (Platform.isAndroid) {
@@ -48,6 +53,7 @@ Future<Schedule> fetchSchedule() async {
   }
 }
 
+// Get standings information from the api
 Future<Standings> fetchStandings() async {
   var api = '';
   if (Platform.isAndroid) {
@@ -67,6 +73,7 @@ Future<Standings> fetchStandings() async {
   }
 }
 
+// Create a list of Acadia basketball players
 class Roster {
   final List<Player> players;
   Roster({this.players});
@@ -77,6 +84,7 @@ class Roster {
   }
 }
 
+// Create a list of Acadia basketball games
 class Schedule {
   final List<Game> games;
   Schedule({this.games});
@@ -87,6 +95,7 @@ class Schedule {
   }
 }
 
+// Create a list of AUS basketball teams with stats
 class Standings {
   final List<Team> teams;
   Standings({this.teams});
@@ -97,6 +106,7 @@ class Standings {
   }
 }
 
+// Create a player for each player entry in the api
 class Player {
   final String id;
   final String no;
@@ -121,6 +131,7 @@ class Player {
   }
 }
 
+// Create a game for each game entry in the api
 class Game {
   final String id;
   final String date;
@@ -150,6 +161,7 @@ class Game {
   }
 }
 
+// Create a team for each team entry in the api
 class Team {
   final String id;
   final String team;
@@ -195,19 +207,21 @@ class AxemenBasketball extends StatefulWidget {
 }
 
 class AxemenBasketballState extends State<AxemenBasketball> {
+  // Create placeholders for data from the api
   Future<Roster> futureRoster;
   Future<Schedule> futureSchedule;
   Future<Standings> futureStandings;
 
   @override
+  // Fetch required information
   void initState() {
     super.initState();
     futureRoster = fetchRoster();
     futureSchedule = fetchSchedule();
     futureStandings = fetchStandings();
-    //if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
 
+  // urls for opponent rosters
   final urlList = [
     'https://www.gocapersgo.ca/sports/mbkb/2020-21/roster',
     'https://daltigers.ca/sports/mbkb/2020-21/roster',
@@ -218,16 +232,18 @@ class AxemenBasketballState extends State<AxemenBasketball> {
     'https://www.goxgo.ca/sports/mbkb/2020-21/roster',
   ];
 
+  // colours for opponent roster buttons
   final colorsList = [
-    Colors.orange[900],
-    Colors.black,
-    Colors.pink[900],
-    Colors.redAccent[700],
-    Colors.green[800],
-    Colors.pink[900],
-    Colors.blue[900],
+    globals.cbuOrange,
+    globals.dalBlack,
+    globals.munPink,
+    globals.unbRed,
+    globals.upeiGreen,
+    globals.smuPink,
+    globals.stfxBlue,
   ];
 
+  // icons for opponent roster buttons
   final iconsList = [
     MyFlutterApp.cbu,
     MyFlutterApp.dal,
@@ -238,6 +254,7 @@ class AxemenBasketballState extends State<AxemenBasketball> {
     MyFlutterApp.stfx,
   ];
 
+  // titles for opponent roster buttons
   final teamsList = [
     'Cape Breton',
     'Dalhousie',
@@ -248,6 +265,8 @@ class AxemenBasketballState extends State<AxemenBasketball> {
     'STFX'
   ];
 
+  // Create the list of opponent roster buttons by iterating over
+  // through urlList, colorsList, iconsList, and teamsList.
   Widget _buildOpponents() {
     return ListView.separated(
       padding: const EdgeInsets.all(20),
@@ -264,6 +283,7 @@ class AxemenBasketballState extends State<AxemenBasketball> {
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                           fontSize: 18)),
+                  // On button push, open a page with a webview of the opponent roster url
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -301,9 +321,11 @@ class AxemenBasketballState extends State<AxemenBasketball> {
     );
   }
 
+  // Create the information to populate tabs
   Widget _buildList() {
     return TabBarView(
       children: [
+        // First tab, displays the schedule
         FutureBuilder<Schedule>(
           future: futureSchedule,
           builder: (context, snapshot) {
@@ -314,7 +336,14 @@ class AxemenBasketballState extends State<AxemenBasketball> {
                 itemCount: yourGames.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                      height: 65,
+                      child: Column(children: <Widget>[
+                    Text(yourGames[index].date),
+                    Text(yourGames[index].homeAway),
+                    Text(yourGames[index].opponent),
+                    Text(yourGames[index].status),
+                    Text(yourGames[index].score)
+                  ])
+                      /*height: 65,
                       child: Text(
                           yourGames[index].date +
                               '\n' +
@@ -327,8 +356,8 @@ class AxemenBasketballState extends State<AxemenBasketball> {
                               yourGames[index].score,
                           style: TextStyle(
                             fontSize: 18,
-                            //fontWeight: FontWeight.bold,
-                          )));
+                          ))*/
+                      );
                 },
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(),
@@ -341,7 +370,14 @@ class AxemenBasketballState extends State<AxemenBasketball> {
             return CircularProgressIndicator();
           },
         ),
-        FutureBuilder<Roster>(
+
+        // Second tab, displays the Acadia roster
+        // This commented code retieves the data from the api
+        // Currently a webview is used instead for simplicity and aesthetics
+        // Can be swapped out by uncommenting the follwoing code and commenting out
+        // the below webview
+
+        /*FutureBuilder<Roster>(
           future: futureRoster,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -367,7 +403,6 @@ class AxemenBasketballState extends State<AxemenBasketball> {
                               yourPlayers[index].town,
                           style: TextStyle(
                             fontSize: 18,
-                            //fontWeight: FontWeight.bold,
                           )));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
@@ -380,12 +415,16 @@ class AxemenBasketballState extends State<AxemenBasketball> {
             // By default, show a loading spinner.
             return CircularProgressIndicator();
           },
-        ),
-        /*WebView(
-          initialUrl: 'https://daltigers.ca/sports/mbkb/2020-21/roster',
-          javascriptMode: JavascriptMode.unrestricted,
         ),*/
+        // Webview verison of Acadia Roster
+        WebView(
+          initialUrl:
+              'https://www.acadiaathletics.ca/sports/mbkb/2020-21/roster',
+          javascriptMode: JavascriptMode.unrestricted,
+        ),
+        // Third tab, displays a list of buttons with links to opponent rosters
         _buildOpponents(),
+        // Fourth tab, displays the AUS standings
         FutureBuilder<Standings>(
           future: futureStandings,
           builder: (context, snapshot) {
@@ -396,7 +435,18 @@ class AxemenBasketballState extends State<AxemenBasketball> {
                 itemCount: yourTeams.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                      height: 190,
+                      child: Column(children: <Widget>[
+                    Text(yourTeams[index].team),
+                    Text('GP: ' + yourTeams[index].gp),
+                    Text('Win-Loss: ' + yourTeams[index].winLoss),
+                    Text('PCT: ' + yourTeams[index].pct),
+                    Text('GF: ' + yourTeams[index].gf),
+                    Text('GA: ' + yourTeams[index].ga),
+                    Text('Last 10: ' + yourTeams[index].l10),
+                    Text('Streak: ' + yourTeams[index].streak),
+                    Text('PTS: ' + yourTeams[index].pts)
+                  ])
+                      /*height: 190,
                       child: Text(
                           yourTeams[index].team +
                               '\nGP: ' +
@@ -417,8 +467,8 @@ class AxemenBasketballState extends State<AxemenBasketball> {
                               yourTeams[index].pts,
                           style: TextStyle(
                             fontSize: 18,
-                            //fontWeight: FontWeight.bold,
-                          )));
+                          ))*/
+                      );
                 },
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(),
@@ -435,6 +485,10 @@ class AxemenBasketballState extends State<AxemenBasketball> {
     );
   }
 
+  // Builds the page with appbar as defined below and body given by _buildList
+  // Tab order matters. The tab titles given below are associated with the
+  // children in the given order of the above function. Ex. FutureBuilder<Schedule>
+  // is associated with the tab with the calendar icon given below.
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

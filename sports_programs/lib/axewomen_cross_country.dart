@@ -6,6 +6,10 @@ import 'dart:convert';
 import 'package:intl/intl.dart';
 import 'dart:io' show Platform;
 
+// This file creates the Axewomen Cross Country page with tabs for
+// schedule and Acadia roster
+
+// Get roster information from the api
 Future<Roster> fetchRoster() async {
   var api = '';
   if (Platform.isAndroid) {
@@ -26,6 +30,7 @@ Future<Roster> fetchRoster() async {
   }
 }
 
+// Get schedule inforamtion from the api
 Future<Schedule> fetchSchedule() async {
   var api = '';
   if (Platform.isAndroid) {
@@ -45,6 +50,7 @@ Future<Schedule> fetchSchedule() async {
   }
 }
 
+// Create a list of Acadia cross country runners
 class Roster {
   final List<Player> players;
   Roster({this.players});
@@ -55,6 +61,7 @@ class Roster {
   }
 }
 
+// Create a list of Acadia cross country events
 class Schedule {
   final List<Game> games;
   Schedule({this.games});
@@ -65,6 +72,7 @@ class Schedule {
   }
 }
 
+// Create a runner for each runner entry in the api
 class Player {
   final String id;
   final String name;
@@ -83,6 +91,7 @@ class Player {
   }
 }
 
+// Create an event for each event entry in the api
 class Game {
   final String id;
   final String date;
@@ -108,19 +117,23 @@ class AxewomenCrossCountry extends StatefulWidget {
 }
 
 class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
+  // Create placeholders for data from the api
   Future<Roster> futureRoster;
   Future<Schedule> futureSchedule;
 
   @override
+  // Fetch required information
   void initState() {
     super.initState();
     futureRoster = fetchRoster();
     futureSchedule = fetchSchedule();
   }
 
+  // Create the information to populate tabs
   Widget _buildList() {
     return TabBarView(
       children: [
+        // First tab, displays the schedule
         FutureBuilder<Schedule>(
           future: futureSchedule,
           builder: (context, snapshot) {
@@ -140,7 +153,6 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
                               yourGames[index].result,
                           style: TextStyle(
                             fontSize: 18,
-                            //fontWeight: FontWeight.bold,
                           )));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
@@ -154,6 +166,7 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
             return CircularProgressIndicator();
           },
         ),
+        // Second tab, displays the Acadia roster
         FutureBuilder<Roster>(
           future: futureRoster,
           builder: (context, snapshot) {
@@ -173,7 +186,6 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
                               yourPlayers[index].town,
                           style: TextStyle(
                             fontSize: 18,
-                            //fontWeight: FontWeight.bold,
                           )));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
@@ -191,6 +203,10 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
     );
   }
 
+  // Builds the page with appbar as defined below and body given by _buildList
+  // Tab order matters. The tab titles given below are associated with the
+  // children in the given order of the above function. Ex. FutureBuilder<Schedule>
+  // is associated with the tab with the calendar icon given below.
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
