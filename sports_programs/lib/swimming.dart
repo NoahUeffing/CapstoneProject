@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:intl/intl.dart';
 import 'dart:io' show Platform;
+import 'package:webview_flutter/webview_flutter.dart';
 
 // This file creates the Swimming page with tabs for
 // schedule and Acadia roster
@@ -150,20 +151,22 @@ class SwimmingState extends State<Swimming> {
                 itemCount: yourGames.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                      height: 110,
-                      child: Text(
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                        Text(
                           yourGames[index].date +
-                              '\n' +
-                              yourGames[index].notes +
-                              '\nTeam(s): ' +
-                              yourGames[index].teams +
-                              '\n' +
-                              yourGames[index].event +
+                              '\nTeams(s): ' +
+                              yourGames[index].teams,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          yourGames[index].notes +
                               '\n' +
                               yourGames[index].results,
-                          style: TextStyle(
-                            fontSize: 18,
-                          )));
+                          style: TextStyle(fontSize: 18),
+                        )
+                      ]));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(),
@@ -177,7 +180,11 @@ class SwimmingState extends State<Swimming> {
           },
         ),
         // Second tab, displays the Acadia roster
-        FutureBuilder<Roster>(
+        // This commented code retieves the data from the api
+        // Currently a webview is used instead for simplicity and aesthetics
+        // Can be swapped out by uncommenting the follwoing code and commenting out
+        // the below webview
+        /*FutureBuilder<Roster>(
           future: futureRoster,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -210,6 +217,12 @@ class SwimmingState extends State<Swimming> {
             // By default, show a loading spinner.
             return CircularProgressIndicator();
           },
+        ),*/
+        // Webview verison of Acadia Roster
+        WebView(
+          initialUrl:
+              'https://www.acadiaathletics.ca/sports/swim/2020-21/roster',
+          javascriptMode: JavascriptMode.unrestricted,
         ),
       ],
     );

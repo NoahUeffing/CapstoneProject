@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:intl/intl.dart';
 import 'dart:io' show Platform;
+import 'package:webview_flutter/webview_flutter.dart';
 
 // This file creates the Axewomen Cross Country page with tabs for
 // schedule and Acadia roster
@@ -133,7 +134,6 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
   Widget _buildList() {
     return TabBarView(
       children: [
-        // First tab, displays the schedule
         FutureBuilder<Schedule>(
           future: futureSchedule,
           builder: (context, snapshot) {
@@ -144,16 +144,20 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
                 itemCount: yourGames.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                      height: 65,
-                      child: Text(
-                          yourGames[index].date +
-                              '\n' +
-                              yourGames[index].event +
-                              '\n' +
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                        Text(
+                          yourGames[index].date,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          yourGames[index].event +
+                              ' \n' +
                               yourGames[index].result,
-                          style: TextStyle(
-                            fontSize: 18,
-                          )));
+                          style: TextStyle(fontSize: 18),
+                        )
+                      ]));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(),
@@ -166,8 +170,13 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
             return CircularProgressIndicator();
           },
         ),
+
         // Second tab, displays the Acadia roster
-        FutureBuilder<Roster>(
+        // This commented code retieves the data from the api
+        // Currently a webview is used instead for simplicity and aesthetics
+        // Can be swapped out by uncommenting the follwoing code and commenting out
+        // the below webview
+        /*FutureBuilder<Roster>(
           future: futureRoster,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -198,7 +207,13 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
             // By default, show a loading spinner.
             return CircularProgressIndicator();
           },
-        ),
+        ),*/
+        // Webview verison of Acadia Roster
+        WebView(
+          initialUrl:
+              'https://www.acadiaathletics.ca/sports/wxc/2019-20/roster',
+          javascriptMode: JavascriptMode.unrestricted,
+        )
       ],
     );
   }

@@ -336,28 +336,26 @@ class AxemenBasketballState extends State<AxemenBasketball> {
                 itemCount: yourGames.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                      child: Column(children: <Widget>[
-                    Text(yourGames[index].date),
-                    Text(yourGames[index].homeAway),
-                    Text(yourGames[index].opponent),
-                    Text(yourGames[index].status),
-                    Text(yourGames[index].score)
-                  ])
-                      /*height: 65,
-                      child: Text(
-                          yourGames[index].date +
-                              '\n' +
-                              yourGames[index].homeAway +
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                        Text(
+                          yourGames[index].date,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          yourGames[index].homeAway +
                               ' ' +
-                              yourGames[index].opponent +
-                              '\n' +
-                              yourGames[index].status +
-                              ' ' +
+                              yourGames[index].opponent,
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Text(
+                          yourGames[index].status +
+                              ' \n' +
                               yourGames[index].score,
-                          style: TextStyle(
-                            fontSize: 18,
-                          ))*/
-                      );
+                          style: TextStyle(fontSize: 18),
+                        )
+                      ]));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(),
@@ -435,40 +433,33 @@ class AxemenBasketballState extends State<AxemenBasketball> {
                 itemCount: yourTeams.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                      child: Column(children: <Widget>[
-                    Text(yourTeams[index].team),
-                    Text('GP: ' + yourTeams[index].gp),
-                    Text('Win-Loss: ' + yourTeams[index].winLoss),
-                    Text('PCT: ' + yourTeams[index].pct),
-                    Text('GF: ' + yourTeams[index].gf),
-                    Text('GA: ' + yourTeams[index].ga),
-                    Text('Last 10: ' + yourTeams[index].l10),
-                    Text('Streak: ' + yourTeams[index].streak),
-                    Text('PTS: ' + yourTeams[index].pts)
-                  ])
-                      /*height: 190,
-                      child: Text(
-                          yourTeams[index].team +
-                              '\nGP: ' +
-                              yourTeams[index].gp +
-                              '\nWin-Loss: ' +
-                              yourTeams[index].winLoss +
-                              '\nPCT: ' +
-                              yourTeams[index].pct +
-                              '\nGF: ' +
-                              yourTeams[index].gf +
-                              '\nGA: ' +
-                              yourTeams[index].ga +
-                              '\nLast 10: ' +
-                              yourTeams[index].l10 +
-                              '\nStreak: ' +
-                              yourTeams[index].streak +
-                              '\nPTS: ' +
-                              yourTeams[index].pts,
-                          style: TextStyle(
-                            fontSize: 18,
-                          ))*/
-                      );
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                        Text(yourTeams[index].team,
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold)),
+                        Text(''),
+                        Text('     GP: ' + yourTeams[index].gp,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 20)),
+                        Text('     Win-Loss: ' + yourTeams[index].winLoss,
+                            style: TextStyle(fontSize: 20)),
+                        Text('     PCT: ' + yourTeams[index].pct,
+                            style: TextStyle(fontSize: 20)),
+                        Text('     GF: ' + yourTeams[index].gf,
+                            style: TextStyle(fontSize: 20)),
+                        Text('     GA: ' + yourTeams[index].ga,
+                            style: TextStyle(fontSize: 20)),
+                        Text('     Last 10: ' + yourTeams[index].l10,
+                            style: TextStyle(fontSize: 20)),
+                        Text('     Streak: ' + yourTeams[index].streak,
+                            style: TextStyle(fontSize: 20)),
+                        Text('     PTS: ' + yourTeams[index].pts,
+                            style: TextStyle(fontSize: 20)),
+                        Text(''),
+                      ]));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
                     const Divider(),
