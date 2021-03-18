@@ -6,7 +6,6 @@ import 'dart:convert';
 import 'package:intl/intl.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:io' show Platform;
-import './presentation/my_flutter_app_icons.dart';
 
 // This file creates the Axemen Basketball page with tabs for
 // schedule, Acadia roster, opponents roster, and AUS standings
@@ -149,7 +148,7 @@ class Game {
 
   factory Game.fromJson(Map<String, dynamic> json) {
     String formattedDate =
-        DateFormat("MMMEd").format(DateTime.parse(json['date']));
+        DateFormat(globals.dateFormat).format(DateTime.parse(json['date']));
     return new Game(
       id: json['_id'].toString(),
       date: formattedDate,
@@ -245,31 +244,31 @@ class AxemenBasketballState extends State<AxemenBasketball> {
 
   // icons for opponent roster buttons
   final iconsList = [
-    MyFlutterApp.cbu,
-    MyFlutterApp.dal,
-    MyFlutterApp.mun,
-    MyFlutterApp.unb,
-    MyFlutterApp.upei,
-    MyFlutterApp.smu,
-    MyFlutterApp.stfx,
+    globals.cbuIcon,
+    globals.dalIcon,
+    globals.munIcon,
+    globals.unbIcon,
+    globals.upeiIcon,
+    globals.smuIcon,
+    globals.stfxIcon,
   ];
 
   // titles for opponent roster buttons
   final teamsList = [
-    'Cape Breton',
-    'Dalhousie',
-    'Memorial',
-    'UNB',
-    'UPEI',
-    "Saint Mary's",
-    'STFX'
+    globals.cbuName,
+    globals.dalName,
+    globals.munName,
+    globals.unbName,
+    globals.upeiName,
+    globals.smuName,
+    globals.stfxName
   ];
 
   // Create the list of opponent roster buttons by iterating over
   // through urlList, colorsList, iconsList, and teamsList.
   Widget _buildOpponents() {
     return ListView.separated(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(globals.defaultPadding),
       itemCount: urlList.length,
       itemBuilder: (BuildContext context, int index) {
         return Container(
@@ -277,12 +276,9 @@ class AxemenBasketballState extends State<AxemenBasketball> {
           color: colorsList[index],
           child: Center(
               child: TextButton.icon(
-                  icon: Icon(iconsList[index], size: 22, color: Colors.white),
-                  label: Text(' ' + teamsList[index],
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 18)),
+                  icon: Icon(iconsList[index],
+                      size: globals.titleSize, color: globals.titleColor),
+                  label: Text(' ' + teamsList[index], style: globals.titleFont),
                   // On button push, open a page with a webview of the opponent roster url
                   onPressed: () {
                     Navigator.push(
@@ -295,15 +291,13 @@ class AxemenBasketballState extends State<AxemenBasketball> {
                                     children: [
                                       WidgetSpan(
                                         child: Icon(iconsList[index],
-                                            size: 22, color: Colors.white),
+                                            size: globals.titleSize,
+                                            color: globals.titleColor),
                                       ),
                                       TextSpan(
                                         text:
                                             "  " + teamsList[index] + " Roster",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                            fontSize: 22),
+                                        style: globals.titleFont,
                                       ),
                                     ],
                                   ),
@@ -323,59 +317,58 @@ class AxemenBasketballState extends State<AxemenBasketball> {
 
   // Create the information to populate tabs
   Widget _buildList() {
-    return TabBarView(
-      children: [
-        // First tab, displays the schedule
-        FutureBuilder<Schedule>(
-          future: futureSchedule,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              List<Game> yourGames = snapshot.data.games;
-              return ListView.separated(
-                padding: const EdgeInsets.all(20),
-                itemCount: yourGames.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                        Text(
-                          yourGames[index].date,
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        Text(
-                          yourGames[index].homeAway +
-                              ' ' +
-                              yourGames[index].opponent,
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        Text(
-                          yourGames[index].status +
-                              ' \n' +
-                              yourGames[index].score,
-                          style: TextStyle(fontSize: 18),
-                        )
-                      ]));
-                },
-                separatorBuilder: (BuildContext context, int index) =>
-                    const Divider(),
-              );
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
+    return TabBarView(children: [
+      // First tab, displays the schedule
+      FutureBuilder<Schedule>(
+        future: futureSchedule,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            List<Game> yourGames = snapshot.data.games;
+            return ListView.separated(
+              padding: const EdgeInsets.all(globals.defaultPadding),
+              itemCount: yourGames.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                      Text(
+                        yourGames[index].date,
+                        style: globals.defaultFont,
+                      ),
+                      Text(
+                        yourGames[index].homeAway +
+                            ' ' +
+                            yourGames[index].opponent,
+                        style: globals.defaultFont,
+                      ),
+                      Text(
+                        yourGames[index].status +
+                            ' \n' +
+                            yourGames[index].score,
+                        style: globals.defaultFont,
+                      )
+                    ]));
+              },
+              separatorBuilder: (BuildContext context, int index) =>
+                  const Divider(),
+            );
+          } else if (snapshot.hasError) {
+            return Text("${snapshot.error}");
+          }
 
-            // By default, show a loading spinner.
-            return CircularProgressIndicator();
-          },
-        ),
+          // By default, show a loading spinner.
+          return CircularProgressIndicator();
+        },
+      ),
 
-        // Second tab, displays the Acadia roster
-        // This commented code retieves the data from the api
-        // Currently a webview is used instead for simplicity and aesthetics
-        // Can be swapped out by uncommenting the follwoing code and commenting out
-        // the below webview
+      // Second tab, displays the Acadia roster
+      // This commented code retieves the data from the api
+      // Currently a webview is used instead for simplicity and aesthetics
+      // Can be swapped out by uncommenting the follwoing code and commenting out
+      // the below webview
 
-        /*FutureBuilder<Roster>(
+      /*FutureBuilder<Roster>(
           future: futureRoster,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -414,66 +407,120 @@ class AxemenBasketballState extends State<AxemenBasketball> {
             return CircularProgressIndicator();
           },
         ),*/
-        // Webview verison of Acadia Roster
-        WebView(
-          initialUrl:
-              'https://www.acadiaathletics.ca/sports/mbkb/2020-21/roster',
-          javascriptMode: JavascriptMode.unrestricted,
-        ),
-        // Third tab, displays a list of buttons with links to opponent rosters
-        _buildOpponents(),
-        // Fourth tab, displays the AUS standings
-        FutureBuilder<Standings>(
-          future: futureStandings,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              List<Team> yourTeams = snapshot.data.teams;
-              return ListView.separated(
-                padding: const EdgeInsets.all(20),
-                itemCount: yourTeams.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                        Text(yourTeams[index].team,
-                            style: TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.bold)),
-                        Text(''),
-                        Text('     GP: ' + yourTeams[index].gp,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20)),
-                        Text('     Win-Loss: ' + yourTeams[index].winLoss,
-                            style: TextStyle(fontSize: 20)),
-                        Text('     PCT: ' + yourTeams[index].pct,
-                            style: TextStyle(fontSize: 20)),
-                        Text('     GF: ' + yourTeams[index].gf,
-                            style: TextStyle(fontSize: 20)),
-                        Text('     GA: ' + yourTeams[index].ga,
-                            style: TextStyle(fontSize: 20)),
-                        Text('     Last 10: ' + yourTeams[index].l10,
-                            style: TextStyle(fontSize: 20)),
-                        Text('     Streak: ' + yourTeams[index].streak,
-                            style: TextStyle(fontSize: 20)),
-                        Text('     PTS: ' + yourTeams[index].pts,
-                            style: TextStyle(fontSize: 20)),
-                        Text(''),
-                      ]));
-                },
-                separatorBuilder: (BuildContext context, int index) =>
-                    const Divider(),
-              );
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
+      // Webview verison of Acadia Roster
+      WebView(
+        initialUrl: 'https://www.acadiaathletics.ca/sports/mbkb/2020-21/roster',
+        javascriptMode: JavascriptMode.unrestricted,
+      ),
+      // Third tab, displays a list of buttons with links to opponent rosters
+      _buildOpponents(),
+      // Fourth tab, displays the AUS standings
+      FutureBuilder<Standings>(
+        future: futureStandings,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            List<Team> yourTeams = snapshot.data.teams;
+            final rows = <DataRow>[];
+            for (var i = 1; i < yourTeams.length; i++) {
+              rows.add(DataRow(cells: [
+                DataCell(Text(
+                  yourTeams[i].team,
+                  style: globals.defaultFont,
+                )),
+                DataCell(Text(
+                  yourTeams[i].gp,
+                  style: globals.defaultFont,
+                )),
+                DataCell(Text(
+                  yourTeams[i].winLoss,
+                  style: globals.defaultFont,
+                )),
+                DataCell(Text(
+                  yourTeams[i].pct,
+                  style: globals.defaultFont,
+                )),
+                DataCell(Text(
+                  yourTeams[i].gf,
+                  style: globals.defaultFont,
+                )),
+                DataCell(Text(
+                  yourTeams[i].ga,
+                  style: globals.defaultFont,
+                )),
+                DataCell(Text(
+                  yourTeams[i].l10,
+                  style: globals.defaultFont,
+                )),
+                DataCell(Text(
+                  yourTeams[i].streak,
+                  style: globals.defaultFont,
+                )),
+                DataCell(Text(
+                  yourTeams[i].pts,
+                  style: globals.defaultFont,
+                )),
+              ]));
             }
+            return SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: SingleChildScrollView(
+                    scrollDirection: Axis.vertical,
+                    child: DataTable(columns: [
+                      DataColumn(
+                          label: Text(
+                        'Team',
+                        style: globals.defaultFont,
+                      )),
+                      DataColumn(
+                          label: Text(
+                        'GP',
+                        style: globals.defaultFont,
+                      )),
+                      DataColumn(
+                          label: Text(
+                        'W-L',
+                        style: globals.defaultFont,
+                      )),
+                      DataColumn(
+                          label: Text(
+                        'PCT',
+                        style: globals.defaultFont,
+                      )),
+                      DataColumn(
+                          label: Text(
+                        'PF',
+                        style: globals.defaultFont,
+                      )),
+                      DataColumn(
+                          label: Text(
+                        'PA',
+                        style: globals.defaultFont,
+                      )),
+                      DataColumn(
+                          label: Text(
+                        'Last 10',
+                        style: globals.defaultFont,
+                      )),
+                      DataColumn(
+                          label: Text(
+                        'Streak',
+                        style: globals.defaultFont,
+                      )),
+                      DataColumn(
+                          label: Text(
+                        'PTS',
+                        style: globals.defaultFont,
+                      )),
+                    ], rows: rows)));
+          } else if (snapshot.hasError) {
+            return Text("${snapshot.error}");
+          }
 
-            // By default, show a loading spinner.
-            return CircularProgressIndicator();
-          },
-        ),
-      ],
-    );
+          // By default, show a loading spinner.
+          return CircularProgressIndicator();
+        },
+      ),
+    ]);
   }
 
   // Builds the page with appbar as defined below and body given by _buildList
@@ -488,26 +535,22 @@ class AxemenBasketballState extends State<AxemenBasketball> {
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.calendar_today)),
-                Tab(text: "Acadia"),
-                Tab(text: "Opponents"),
-                Tab(icon: Icon(Icons.list_rounded)),
+                Tab(icon: Icon(globals.scheduleIcon)),
+                Tab(text: globals.shortRosterTitle),
+                Tab(text: globals.awayRosterTitle),
+                Tab(icon: Icon(globals.standingsIcon)),
               ],
             ),
             title: RichText(
               text: TextSpan(
                 children: [
                   WidgetSpan(
-                    child: Icon(Icons.sports_basketball,
-                        size: 22, color: Colors.white),
+                    child: Icon(globals.basketballIcon,
+                        size: globals.titleSize, color: globals.titleColor),
                   ),
                   TextSpan(
-                    text: " Axemen Basketball",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 22),
-                  ),
+                      text: " " + globals.menBasketBallTitle,
+                      style: globals.titleFont),
                 ],
               ),
             ),

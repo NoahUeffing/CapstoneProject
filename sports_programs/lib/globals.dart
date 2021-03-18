@@ -4,6 +4,7 @@
 library my_prj.globals;
 
 import 'package:flutter/material.dart';
+import './presentation/my_flutter_app_icons.dart';
 
 // For using the localhost api
 // Andorid uses 10.0.2.2 as an address to localhost
@@ -20,3 +21,61 @@ final unbRed = Colors.redAccent[700];
 final upeiGreen = Colors.green[800];
 final smuPink = Colors.pink[900];
 final stfxBlue = Colors.blue[900];
+
+// font
+final defaultFont = TextStyle(fontSize: 18);
+final titleFont =
+    TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white);
+final titleColor = Colors.white;
+final double titleSize = 22;
+
+// titles
+final shortRosterTitle = "Acadia";
+final longRosterTitle = "Acadia Roster";
+final awayRosterTitle = "Opponents";
+final womenCrossCountryTitle = "Axewomen Cross Country";
+final swimmingTitle = "Acadia Swimming";
+final menBasketBallTitle = 'Axemen Basketball';
+final womenBasketballTitle = 'Axewomen Basketball';
+final menFootballTitle = 'Axemen Football';
+final menHockeyTitle = 'Axemen Hockey';
+final womenRugbyTitle = 'Axewomen Rugby';
+final menSoccerTitle = 'Axemen Soccer';
+final womenSoccerTitle = 'Axewomen Soccer';
+final womenVolleyTitle = 'Axewomen Volleyball';
+
+// icons
+final standingsIcon = Icons.list_rounded;
+final crossCountryIcon = Icons.directions_run;
+final scheduleIcon = Icons.calendar_today;
+final swimmingIcon = Icons.pool;
+final basketballIcon = Icons.sports_basketball;
+final footballIcon = Icons.sports_football;
+final hockeyIcons = Icons.sports_hockey;
+final rugbyIcon = Icons.sports_rugby;
+final soccerIcon = Icons.sports_soccer;
+final volleyIcon = Icons.sports_volleyball;
+
+final acadiaIcon = MyFlutterApp.acadia;
+final cbuIcon = MyFlutterApp.cbu;
+final dalIcon = MyFlutterApp.dal;
+final munIcon = MyFlutterApp.mun;
+final unbIcon = MyFlutterApp.unb;
+final upeiIcon = MyFlutterApp.upei;
+final smuIcon = MyFlutterApp.smu;
+final stfxIcon = MyFlutterApp.stfx;
+
+// padding
+const double defaultPadding = 20;
+
+// date
+final dateFormat = "MMMEd";
+
+// Opponent names
+final cbuName = 'Cape Breton';
+final dalName = 'Dalhousie';
+final munName = 'Memorial';
+final unbName = 'UNB';
+final upeiName = 'UPEI';
+final smuName = "Saint Mary's";
+final stfxName = 'STFX';

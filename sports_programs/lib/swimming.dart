@@ -106,7 +106,7 @@ class Game {
 
   factory Game.fromJson(Map<String, dynamic> json) {
     String formattedDate =
-        DateFormat("MMMEd").format(DateTime.parse(json['date']));
+        DateFormat(globals.dateFormat).format(DateTime.parse(json['date']));
     return new Game(
       id: json['_id'].toString(),
       date: formattedDate,
@@ -147,7 +147,7 @@ class SwimmingState extends State<Swimming> {
             if (snapshot.hasData) {
               List<Game> yourGames = snapshot.data.games;
               return ListView.separated(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(globals.defaultPadding),
                 itemCount: yourGames.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -158,13 +158,13 @@ class SwimmingState extends State<Swimming> {
                           yourGames[index].date +
                               '\nTeams(s): ' +
                               yourGames[index].teams,
-                          style: TextStyle(fontSize: 18),
+                          style: globals.defaultFont,
                         ),
                         Text(
                           yourGames[index].notes +
                               '\n' +
                               yourGames[index].results,
-                          style: TextStyle(fontSize: 18),
+                          style: globals.defaultFont,
                         )
                       ]));
                 },
@@ -190,7 +190,7 @@ class SwimmingState extends State<Swimming> {
             if (snapshot.hasData) {
               List<Player> yourPlayers = snapshot.data.players;
               return ListView.separated(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(globals.defaultPadding),
                 itemCount: yourPlayers.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -204,7 +204,7 @@ class SwimmingState extends State<Swimming> {
                               '\nHometown: ' +
                               yourPlayers[index].town,
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: globals.defaultFont,
                           )));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
@@ -240,22 +240,20 @@ class SwimmingState extends State<Swimming> {
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.calendar_today)),
-                Tab(text: "Acadia Roster"),
+                Tab(icon: Icon(globals.scheduleIcon)),
+                Tab(text: globals.longRosterTitle)
               ],
             ),
             title: RichText(
               text: TextSpan(
                 children: [
                   WidgetSpan(
-                    child: Icon(Icons.pool, size: 22, color: Colors.white),
+                    child: Icon(globals.swimmingIcon,
+                        size: globals.titleSize, color: globals.titleColor),
                   ),
                   TextSpan(
-                    text: " Acadia Swimming",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 22),
+                    text: " " + globals.swimmingTitle,
+                    style: globals.titleFont,
                   ),
                 ],
               ),

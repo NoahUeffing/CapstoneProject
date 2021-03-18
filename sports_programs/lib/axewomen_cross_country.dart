@@ -102,7 +102,7 @@ class Game {
 
   factory Game.fromJson(Map<String, dynamic> json) {
     String formattedDate =
-        DateFormat("MMMEd").format(DateTime.parse(json['date']));
+        DateFormat(globals.dateFormat).format(DateTime.parse(json['date']));
     return new Game(
       id: json['_id'].toString(),
       date: formattedDate,
@@ -140,7 +140,7 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
             if (snapshot.hasData) {
               List<Game> yourGames = snapshot.data.games;
               return ListView.separated(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(globals.defaultPadding),
                 itemCount: yourGames.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
@@ -149,13 +149,13 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
                           children: <Widget>[
                         Text(
                           yourGames[index].date,
-                          style: TextStyle(fontSize: 18),
+                          style: globals.defaultFont,
                         ),
                         Text(
                           yourGames[index].event +
                               ' \n' +
                               yourGames[index].result,
-                          style: TextStyle(fontSize: 18),
+                          style: globals.defaultFont,
                         )
                       ]));
                 },
@@ -194,7 +194,7 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
                               ' year\nHometown: ' +
                               yourPlayers[index].town,
                           style: TextStyle(
-                            fontSize: 18,
+                            globals.defaultFont,
                           )));
                 },
                 separatorBuilder: (BuildContext context, int index) =>
@@ -230,23 +230,20 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
-                Tab(icon: Icon(Icons.calendar_today)),
-                Tab(text: "Acadia Roster"),
+                Tab(icon: Icon(globals.scheduleIcon)),
+                Tab(text: globals.longRosterTitle),
               ],
             ),
             title: RichText(
               text: TextSpan(
                 children: [
                   WidgetSpan(
-                    child: Icon(Icons.directions_run,
-                        size: 22, color: Colors.white),
+                    child: Icon(globals.crossCountryIcon,
+                        size: globals.titleSize, color: globals.titleColor),
                   ),
                   TextSpan(
-                    text: " Axewomen Cross Country",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontSize: 22),
+                    text: " " + globals.womenCrossCountryTitle,
+                    style: globals.titleFont,
                   ),
                 ],
               ),

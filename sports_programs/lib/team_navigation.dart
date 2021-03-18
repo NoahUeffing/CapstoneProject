@@ -22,29 +22,29 @@ class TeamNavigation extends StatefulWidget {
 class TeamNavigationState extends State<TeamNavigation> {
   // Titles for each button
   final sports = [
-    'Axemen Basketball',
-    'Axewomen Basketball',
-    'Axewomen Cross Country',
-    'Axemen Football',
-    'Axemen Hockey',
-    'Axewomen Rugby',
-    'Axemen Soccer',
-    'Axewomen Soccer',
-    'Axemen & Axewomen Swimming',
-    'Axewomen Volleyball'
+    globals.menBasketBallTitle,
+    globals.womenBasketballTitle,
+    globals.womenCrossCountryTitle,
+    globals.menFootballTitle,
+    globals.menHockeyTitle,
+    globals.womenRugbyTitle,
+    globals.menSoccerTitle,
+    globals.womenSoccerTitle,
+    globals.swimmingTitle,
+    globals.womenVolleyTitle
   ];
   // Icons for each button
   final iconsList = [
-    Icons.sports_basketball,
-    Icons.sports_basketball,
-    Icons.directions_run,
-    Icons.sports_football,
-    Icons.sports_hockey,
-    Icons.sports_rugby,
-    Icons.sports_soccer,
-    Icons.sports_soccer,
-    Icons.pool,
-    Icons.sports_volleyball
+    globals.basketballIcon,
+    globals.basketballIcon,
+    globals.crossCountryIcon,
+    globals.footballIcon,
+    globals.footballIcon,
+    globals.rugbyIcon,
+    globals.soccerIcon,
+    globals.soccerIcon,
+    globals.swimmingIcon,
+    globals.volleyIcon
   ];
   // Pages for each button to link to
   final pagesList = [
@@ -65,7 +65,7 @@ class TeamNavigationState extends State<TeamNavigation> {
   // Creates the list of buttons with links to sports pages.
   Widget _buildList() {
     return ListView.separated(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(globals.defaultPadding),
       itemCount: sports.length,
       itemBuilder: (BuildContext context, int index) {
         // Create button for each sport
@@ -74,12 +74,9 @@ class TeamNavigationState extends State<TeamNavigation> {
           color: colorCodes[index % 2],
           child: Center(
               child: TextButton.icon(
-                  icon: Icon(iconsList[index], size: 22, color: Colors.white),
-                  label: Text('${sports[index]}',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 18)),
+                  icon: Icon(iconsList[index],
+                      size: globals.titleSize, color: globals.titleColor),
+                  label: Text('${sports[index]}', style: globals.titleFont),
                   // When button pressed, link to the related sport page
                   onPressed: () {
                     Navigator.push(
@@ -97,6 +94,11 @@ class TeamNavigationState extends State<TeamNavigation> {
   // Creates the team navigation page of the application with appBar and list of buttons.
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Choose a Sport')), body: _buildList());
+        appBar: AppBar(
+            title: Text(
+          'Choose a Sport',
+          style: globals.titleFont,
+        )),
+        body: _buildList());
   }
 }
