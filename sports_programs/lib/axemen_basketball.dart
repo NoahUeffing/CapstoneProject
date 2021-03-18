@@ -317,58 +317,60 @@ class AxemenBasketballState extends State<AxemenBasketball> {
 
   // Create the information to populate tabs
   Widget _buildList() {
-    return TabBarView(children: [
-      // First tab, displays the schedule
-      FutureBuilder<Schedule>(
-        future: futureSchedule,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            List<Game> yourGames = snapshot.data.games;
-            return ListView.separated(
-              padding: const EdgeInsets.all(globals.defaultPadding),
-              itemCount: yourGames.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                      Text(
-                        yourGames[index].date,
-                        style: globals.defaultFont,
-                      ),
-                      Text(
-                        yourGames[index].homeAway +
-                            ' ' +
-                            yourGames[index].opponent,
-                        style: globals.defaultFont,
-                      ),
-                      Text(
-                        yourGames[index].status +
-                            ' \n' +
-                            yourGames[index].score,
-                        style: globals.defaultFont,
-                      )
-                    ]));
-              },
-              separatorBuilder: (BuildContext context, int index) =>
-                  const Divider(),
-            );
-          } else if (snapshot.hasError) {
-            return Text("${snapshot.error}");
-          }
+    return Theme(
+        data: Theme.of(context).copyWith(dividerColor: globals.acadiaRed),
+        child: TabBarView(children: [
+          // First tab, displays the schedule
+          FutureBuilder<Schedule>(
+            future: futureSchedule,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                List<Game> yourGames = snapshot.data.games;
+                return ListView.separated(
+                  padding: const EdgeInsets.all(globals.defaultPadding),
+                  itemCount: yourGames.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                          Text(
+                            yourGames[index].date,
+                            style: globals.defaultFont,
+                          ),
+                          Text(
+                            yourGames[index].homeAway +
+                                ' ' +
+                                yourGames[index].opponent,
+                            style: globals.defaultFont,
+                          ),
+                          Text(
+                            yourGames[index].status +
+                                ' \n' +
+                                yourGames[index].score,
+                            style: globals.defaultFont,
+                          )
+                        ]));
+                  },
+                  separatorBuilder: (BuildContext context, int index) =>
+                      const Divider(),
+                );
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
 
-          // By default, show a loading spinner.
-          return CircularProgressIndicator();
-        },
-      ),
+              // By default, show a loading spinner.
+              return CircularProgressIndicator();
+            },
+          ),
 
-      // Second tab, displays the Acadia roster
-      // This commented code retieves the data from the api
-      // Currently a webview is used instead for simplicity and aesthetics
-      // Can be swapped out by uncommenting the follwoing code and commenting out
-      // the below webview
+          // Second tab, displays the Acadia roster
+          // This commented code retieves the data from the api
+          // Currently a webview is used instead for simplicity and aesthetics
+          // Can be swapped out by uncommenting the follwoing code and commenting out
+          // the below webview
 
-      /*FutureBuilder<Roster>(
+          /*FutureBuilder<Roster>(
           future: futureRoster,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -407,120 +409,131 @@ class AxemenBasketballState extends State<AxemenBasketball> {
             return CircularProgressIndicator();
           },
         ),*/
-      // Webview verison of Acadia Roster
-      WebView(
-        initialUrl: 'https://www.acadiaathletics.ca/sports/mbkb/2020-21/roster',
-        javascriptMode: JavascriptMode.unrestricted,
-      ),
-      // Third tab, displays a list of buttons with links to opponent rosters
-      _buildOpponents(),
-      // Fourth tab, displays the AUS standings
-      FutureBuilder<Standings>(
-        future: futureStandings,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            List<Team> yourTeams = snapshot.data.teams;
-            final rows = <DataRow>[];
-            for (var i = 1; i < yourTeams.length; i++) {
-              rows.add(DataRow(cells: [
-                DataCell(Text(
-                  yourTeams[i].team,
-                  style: globals.defaultFont,
-                )),
-                DataCell(Text(
-                  yourTeams[i].gp,
-                  style: globals.defaultFont,
-                )),
-                DataCell(Text(
-                  yourTeams[i].winLoss,
-                  style: globals.defaultFont,
-                )),
-                DataCell(Text(
-                  yourTeams[i].pct,
-                  style: globals.defaultFont,
-                )),
-                DataCell(Text(
-                  yourTeams[i].gf,
-                  style: globals.defaultFont,
-                )),
-                DataCell(Text(
-                  yourTeams[i].ga,
-                  style: globals.defaultFont,
-                )),
-                DataCell(Text(
-                  yourTeams[i].l10,
-                  style: globals.defaultFont,
-                )),
-                DataCell(Text(
-                  yourTeams[i].streak,
-                  style: globals.defaultFont,
-                )),
-                DataCell(Text(
-                  yourTeams[i].pts,
-                  style: globals.defaultFont,
-                )),
-              ]));
-            }
-            return SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: DataTable(columns: [
-                      DataColumn(
-                          label: Text(
-                        'Team',
-                        style: globals.defaultFont,
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'GP',
-                        style: globals.defaultFont,
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'W-L',
-                        style: globals.defaultFont,
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'PCT',
-                        style: globals.defaultFont,
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'PF',
-                        style: globals.defaultFont,
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'PA',
-                        style: globals.defaultFont,
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'Last 10',
-                        style: globals.defaultFont,
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'Streak',
-                        style: globals.defaultFont,
-                      )),
-                      DataColumn(
-                          label: Text(
-                        'PTS',
-                        style: globals.defaultFont,
-                      )),
-                    ], rows: rows)));
-          } else if (snapshot.hasError) {
-            return Text("${snapshot.error}");
-          }
+          // Webview verison of Acadia Roster
+          WebView(
+            initialUrl:
+                'https://www.acadiaathletics.ca/sports/mbkb/2020-21/roster',
+            javascriptMode: JavascriptMode.unrestricted,
+          ),
+          // Third tab, displays a list of buttons with links to opponent rosters
+          _buildOpponents(),
+          // Fourth tab, displays the AUS standings
+          FutureBuilder<Standings>(
+            future: futureStandings,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                List<Team> yourTeams = snapshot.data.teams;
+                final rows = <DataRow>[];
+                for (var i = 0; i < yourTeams.length; i++) {
+                  rows.add(DataRow(
+                      color: MaterialStateProperty.resolveWith<Color>(
+                          (Set<MaterialState> states) {
+                        return globals.tableRowColor; // Use the default value.
+                      }),
+                      cells: [
+                        DataCell(Text(
+                          yourTeams[i].team,
+                          style: globals.defaultFont,
+                        )),
+                        DataCell(Text(
+                          yourTeams[i].gp,
+                          style: globals.defaultFont,
+                        )),
+                        DataCell(Text(
+                          yourTeams[i].winLoss,
+                          style: globals.defaultFont,
+                        )),
+                        DataCell(Text(
+                          yourTeams[i].pct,
+                          style: globals.defaultFont,
+                        )),
+                        DataCell(Text(
+                          yourTeams[i].gf,
+                          style: globals.defaultFont,
+                        )),
+                        DataCell(Text(
+                          yourTeams[i].ga,
+                          style: globals.defaultFont,
+                        )),
+                        DataCell(Text(
+                          yourTeams[i].l10,
+                          style: globals.defaultFont,
+                        )),
+                        DataCell(Text(
+                          yourTeams[i].streak,
+                          style: globals.defaultFont,
+                        )),
+                        DataCell(Text(
+                          yourTeams[i].pts,
+                          style: globals.defaultFont,
+                        )),
+                      ]));
+                }
+                return /*Padding(
+                    padding: const EdgeInsets.all(globals.defaultPadding),
+                    child: */
+                    SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: SingleChildScrollView(
+                            scrollDirection: Axis.vertical,
+                            child: DataTable(
+                                headingRowColor: MaterialStateColor.resolveWith(
+                                    (states) => globals.acadiaRed),
+                                columns: [
+                                  DataColumn(
+                                      label: Text('Team',
+                                          style: globals.tableFontStyle)),
+                                  DataColumn(
+                                      label: Text(
+                                    'GP',
+                                    style: globals.tableFontStyle,
+                                  )),
+                                  DataColumn(
+                                      label: Text(
+                                    'W-L',
+                                    style: globals.tableFontStyle,
+                                  )),
+                                  DataColumn(
+                                      label: Text(
+                                    'PCT',
+                                    style: globals.tableFontStyle,
+                                  )),
+                                  DataColumn(
+                                      label: Text(
+                                    'PF',
+                                    style: globals.tableFontStyle,
+                                  )),
+                                  DataColumn(
+                                      label: Text(
+                                    'PA',
+                                    style: globals.tableFontStyle,
+                                  )),
+                                  DataColumn(
+                                      label: Text(
+                                    'Last 10',
+                                    style: globals.tableFontStyle,
+                                  )),
+                                  DataColumn(
+                                      label: Text(
+                                    'Streak',
+                                    style: globals.tableFontStyle,
+                                  )),
+                                  DataColumn(
+                                      label: Text(
+                                    'PTS',
+                                    style: globals.tableFontStyle,
+                                  )),
+                                ],
+                                rows: rows)));
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
 
-          // By default, show a loading spinner.
-          return CircularProgressIndicator();
-        },
-      ),
-    ]);
+              // By default, show a loading spinner.
+              return CircularProgressIndicator();
+            },
+          ),
+        ]));
   }
 
   // Builds the page with appbar as defined below and body given by _buildList

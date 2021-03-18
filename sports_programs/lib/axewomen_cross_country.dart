@@ -132,51 +132,53 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
 
   // Create the information to populate tabs
   Widget _buildList() {
-    return TabBarView(
-      children: [
-        FutureBuilder<Schedule>(
-          future: futureSchedule,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              List<Game> yourGames = snapshot.data.games;
-              return ListView.separated(
-                padding: const EdgeInsets.all(globals.defaultPadding),
-                itemCount: yourGames.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                        Text(
-                          yourGames[index].date,
-                          style: globals.defaultFont,
-                        ),
-                        Text(
-                          yourGames[index].event +
-                              ' \n' +
-                              yourGames[index].result,
-                          style: globals.defaultFont,
-                        )
-                      ]));
-                },
-                separatorBuilder: (BuildContext context, int index) =>
-                    const Divider(),
-              );
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
+    return Theme(
+        data: Theme.of(context).copyWith(dividerColor: globals.acadiaRed),
+        child: TabBarView(
+          children: [
+            FutureBuilder<Schedule>(
+              future: futureSchedule,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List<Game> yourGames = snapshot.data.games;
+                  return ListView.separated(
+                    padding: const EdgeInsets.all(globals.defaultPadding),
+                    itemCount: yourGames.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                            Text(
+                              yourGames[index].date,
+                              style: globals.defaultFont,
+                            ),
+                            Text(
+                              yourGames[index].event +
+                                  ' \n' +
+                                  yourGames[index].result,
+                              style: globals.defaultFont,
+                            )
+                          ]));
+                    },
+                    separatorBuilder: (BuildContext context, int index) =>
+                        const Divider(),
+                  );
+                } else if (snapshot.hasError) {
+                  return Text("${snapshot.error}");
+                }
 
-            // By default, show a loading spinner.
-            return CircularProgressIndicator();
-          },
-        ),
+                // By default, show a loading spinner.
+                return CircularProgressIndicator();
+              },
+            ),
 
-        // Second tab, displays the Acadia roster
-        // This commented code retieves the data from the api
-        // Currently a webview is used instead for simplicity and aesthetics
-        // Can be swapped out by uncommenting the follwoing code and commenting out
-        // the below webview
-        /*FutureBuilder<Roster>(
+            // Second tab, displays the Acadia roster
+            // This commented code retieves the data from the api
+            // Currently a webview is used instead for simplicity and aesthetics
+            // Can be swapped out by uncommenting the follwoing code and commenting out
+            // the below webview
+            /*FutureBuilder<Roster>(
           future: futureRoster,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -208,14 +210,14 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
             return CircularProgressIndicator();
           },
         ),*/
-        // Webview verison of Acadia Roster
-        WebView(
-          initialUrl:
-              'https://www.acadiaathletics.ca/sports/wxc/2019-20/roster',
-          javascriptMode: JavascriptMode.unrestricted,
-        )
-      ],
-    );
+            // Webview verison of Acadia Roster
+            WebView(
+              initialUrl:
+                  'https://www.acadiaathletics.ca/sports/wxc/2019-20/roster',
+              javascriptMode: JavascriptMode.unrestricted,
+            )
+          ],
+        ));
   }
 
   // Builds the page with appbar as defined below and body given by _buildList

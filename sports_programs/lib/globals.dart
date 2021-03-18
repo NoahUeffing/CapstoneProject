@@ -11,16 +11,21 @@ import './presentation/my_flutter_app_icons.dart';
 const iosApi = "http://localhost:5000/api";
 const androidApi = "http://10.0.2.2:5000/api";
 
-// University colours
+// colours
 final acadiaRed = Colors.red[900];
 final acadiaBlue = Colors.lightBlue[900];
 final cbuOrange = Colors.orange[900];
 final dalBlack = Colors.black;
-final munPink = Colors.pink[900];
+final munPink = Colors.red[900];
 final unbRed = Colors.redAccent[700];
 final upeiGreen = Colors.green[800];
 final smuPink = Colors.pink[900];
 final stfxBlue = Colors.blue[900];
+final tableRowColor = Colors.red[50];
+final bishopPurple = Colors.purple[900];
+final mtaGold = Colors.amberAccent[700];
+final monctonBlue = Colors.blue[900];
+final stuGreen = Colors.green[900];
 
 // font
 final defaultFont = TextStyle(fontSize: 18);
@@ -28,6 +33,11 @@ final titleFont =
     TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white);
 final titleColor = Colors.white;
 final double titleSize = 22;
+final tableFontStyle = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    fontStyle: FontStyle.italic,
+    color: Colors.white);
 
 // titles
 final shortRosterTitle = "Acadia";
@@ -51,7 +61,7 @@ final scheduleIcon = Icons.calendar_today;
 final swimmingIcon = Icons.pool;
 final basketballIcon = Icons.sports_basketball;
 final footballIcon = Icons.sports_football;
-final hockeyIcons = Icons.sports_hockey;
+final hockeyIcon = Icons.sports_hockey;
 final rugbyIcon = Icons.sports_rugby;
 final soccerIcon = Icons.sports_soccer;
 final volleyIcon = Icons.sports_volleyball;
@@ -59,11 +69,15 @@ final volleyIcon = Icons.sports_volleyball;
 final acadiaIcon = MyFlutterApp.acadia;
 final cbuIcon = MyFlutterApp.cbu;
 final dalIcon = MyFlutterApp.dal;
+final monctonIcon = MyFlutterApp.moncton;
 final munIcon = MyFlutterApp.mun;
 final unbIcon = MyFlutterApp.unb;
 final upeiIcon = MyFlutterApp.upei;
 final smuIcon = MyFlutterApp.smu;
 final stfxIcon = MyFlutterApp.stfx;
+final bishopIcon = MyFlutterApp.bishop;
+final mtaIcon = MyFlutterApp.mta;
+final stuIcon = MyFlutterApp.stu;
 
 // padding
 const double defaultPadding = 20;
@@ -75,7 +89,11 @@ final dateFormat = "MMMEd";
 final cbuName = 'Cape Breton';
 final dalName = 'Dalhousie';
 final munName = 'Memorial';
+final monctonName = 'Moncton';
 final unbName = 'UNB';
 final upeiName = 'UPEI';
 final smuName = "Saint Mary's";
-final stfxName = 'STFX';
+final stuName = "  St. Thomas";
+final stfxName = 'StFX';
+final bishopName = "Bishop's";
+final mtaName = "Mount Allison";

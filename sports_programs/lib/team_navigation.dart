@@ -39,7 +39,7 @@ class TeamNavigationState extends State<TeamNavigation> {
     globals.basketballIcon,
     globals.crossCountryIcon,
     globals.footballIcon,
-    globals.footballIcon,
+    globals.hockeyIcon,
     globals.rugbyIcon,
     globals.soccerIcon,
     globals.soccerIcon,

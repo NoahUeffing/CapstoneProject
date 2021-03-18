@@ -12,9 +12,7 @@
 ///       - asset: fonts/MyFlutterApp.ttf
 ///
 ///
-/// Contains the icons for each AUS Team
-/// Accessed by importing './presentation/my_flutter_app_icons.dart' into a dart file
-/// and then using MyflutterApp.<univerity> (ex. MyFlutterApp.acadia for Acadia's icon)
+///
 import 'package:flutter/widgets.dart';
 
 class MyFlutterApp {
@@ -33,7 +31,7 @@ class MyFlutterApp {
       IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData dal =
       IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData mounties =
+  static const IconData mta =
       IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData moncton =
       IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
@@ -45,4 +43,6 @@ class MyFlutterApp {
       IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData mun =
       IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData bishop =
+      IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
