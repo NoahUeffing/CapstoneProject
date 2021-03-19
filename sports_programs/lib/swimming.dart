@@ -156,18 +156,16 @@ class SwimmingState extends State<Swimming> {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                            Text(
-                              yourGames[index].date +
-                                  '\nTeams(s): ' +
-                                  yourGames[index].teams,
-                              style: globals.defaultFont,
-                            ),
-                            Text(
-                              yourGames[index].notes +
-                                  '\n' +
-                                  yourGames[index].results,
-                              style: globals.defaultFont,
-                            )
+                            Expanded(
+                                child: Text(
+                                    yourGames[index].date +
+                                        '\nTeams(s): ' +
+                                        yourGames[index].teams +
+                                        '\n' +
+                                        yourGames[index].notes +
+                                        '\nResults: ' +
+                                        yourGames[index].results,
+                                    style: globals.defaultFont))
                           ]));
                     },
                     separatorBuilder: (BuildContext context, int index) =>
