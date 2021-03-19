@@ -233,7 +233,7 @@ class AxemenHockeyState extends State<AxemenHockey> {
   // urls for opponent rosters
   final urlList = [
     'https://daltigers.ca/sports/mice/2020-21/roster',
-    'hhttps://www.umoncton.ca/umcm-sports/node/186',
+    'https://www.umoncton.ca/umcm-sports/node/186',
     'https://goredsgo.ca/sports/mice/2020-21/roster',
     'https://www.gopanthersgo.ca/sports/mice/2020-21/roster',
     'https://www.smuhuskies.ca/sports/mice/2020-21/roster',
