@@ -1,7 +1,8 @@
 # CapstoneProject
 
 This project acts as a digital replacement to Acadia University Athletics game programs and was created for
-course credit for COMP 4983 at Acadia University.
+course credit for COMP 4983 at Acadia University. The application has pages for each of Acadia's varsity athletics teams
+that include schedules, Acadia rosters, and where applicable, opponent rosters and standings.
 
 # Main Files and Directories
 
