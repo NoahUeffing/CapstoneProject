@@ -40,9 +40,13 @@ course credit for COMP 4983 at Acadia University.
 
 Install node.js: https://nodejs.org/en/
 
-Install flutter and iOS and/or Android emulators: https://flutter.dev/docs/get-started/install
+Install flutter, iOS and/or Android emulators: https://flutter.dev/docs/get-started/install
 
 In the main directory and also the /scrapers directory, run the command "npm install".
+
+In the sports_programs directory run the commands "dart pub get" and "flutter pub get".
+You may also need to restart your text editor and mobile device emulator after installing
+dependencies.
 
 # To Update Database
 
