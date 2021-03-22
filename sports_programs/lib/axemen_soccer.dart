@@ -434,7 +434,7 @@ class AxemenSoccerState extends State<AxemenSoccer> {
                   rows.add(DataRow(
                       color: MaterialStateProperty.resolveWith<Color>(
                           (Set<MaterialState> states) {
-                        return globals.tableRowColor; // Use the default value.
+                        return globals.tableRowColor;
                       }),
                       cells: [
                         DataCell(Text(
@@ -471,57 +471,54 @@ class AxemenSoccerState extends State<AxemenSoccer> {
                         )),
                       ]));
                 }
-                return /*Padding(
-                    padding: const EdgeInsets.all(globals.defaultPadding),
-                    child: */
-                    SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: DataTable(
-                                headingRowColor: MaterialStateColor.resolveWith(
-                                    (states) => globals.acadiaRed),
-                                columns: [
-                                  DataColumn(
-                                      label: Text('Team',
-                                          style: globals.tableFontStyle)),
-                                  DataColumn(
-                                      label: Text(
-                                    'GP',
-                                    style: globals.tableFontStyle,
-                                  )),
-                                  DataColumn(
-                                      label: Text(
-                                    'W-L',
-                                    style: globals.tableFontStyle,
-                                  )),
-                                  DataColumn(
-                                      label: Text(
-                                    'PCT',
-                                    style: globals.tableFontStyle,
-                                  )),
-                                  DataColumn(
-                                      label: Text(
-                                    'GF',
-                                    style: globals.tableFontStyle,
-                                  )),
-                                  DataColumn(
-                                      label: Text(
-                                    'GA',
-                                    style: globals.tableFontStyle,
-                                  )),
-                                  DataColumn(
-                                      label: Text(
-                                    'Last 10',
-                                    style: globals.tableFontStyle,
-                                  )),
-                                  DataColumn(
-                                      label: Text(
-                                    'Streak',
-                                    style: globals.tableFontStyle,
-                                  )),
-                                ],
-                                rows: rows)));
+                return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: DataTable(
+                            headingRowColor: MaterialStateColor.resolveWith(
+                                (states) => globals.acadiaRed),
+                            columns: [
+                              DataColumn(
+                                  label: Text('Team',
+                                      style: globals.tableFontStyle)),
+                              DataColumn(
+                                  label: Text(
+                                'GP',
+                                style: globals.tableFontStyle,
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'W-L',
+                                style: globals.tableFontStyle,
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'PCT',
+                                style: globals.tableFontStyle,
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'GF',
+                                style: globals.tableFontStyle,
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'GA',
+                                style: globals.tableFontStyle,
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'Last 10',
+                                style: globals.tableFontStyle,
+                              )),
+                              DataColumn(
+                                  label: Text(
+                                'Streak',
+                                style: globals.tableFontStyle,
+                              )),
+                            ],
+                            rows: rows)));
               } else if (snapshot.hasError) {
                 return Text("${snapshot.error}");
               }
