@@ -9,7 +9,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(primaryColor: globals.acadiaRed),
-        home: TeamNavigation());
+      theme: ThemeData(primaryColor: globals.acadiaRed),
+      home: TeamNavigation(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
