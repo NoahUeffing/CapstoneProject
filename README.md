@@ -5,35 +5,35 @@ course credit for COMP 4983 at Acadia University.
 
 # Main Files and Directories
 
-- config
+- config:
   Contains files to connect the mongodb database to the application.
 
-- data
+- data:
   Contains the JSON arrays that are output when running the web scrapers.
 
-- models
+- models:
   Contains all models used by mongoose to create and read data from the database.
 
-- routes
+- routes:
   Contains all API routes for all GET, POST, PUT, DELETE and requests.
 
-- sports_programs
+- sports_programs:
   Contains the files needed for the flutter frontend.
 
-- sports_programs/fonts
+- sports_programs/fonts:
   Contains the font file for all AUS icons.
 
-- sports_programs/launcher_icon
+- sports_programs/launcher_icon:
   Contains the picture used as the homescreen icon
 
-- sports_programs/lib
+- sports_programs/lib:
   Contains all pages for the mobile application as well as the main.dart file
   used to run the app.
 
-- sports_programs/lib/presentation
+- sports_programs/lib/presentation:
   Contains each AUS flutter icon.
 
-- server.js
+- server.js:
   Sets up the server so that the frontend can interact with the API.
 
 # To Install Dependencies
