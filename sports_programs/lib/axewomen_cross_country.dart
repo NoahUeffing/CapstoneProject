@@ -130,6 +130,105 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
     futureSchedule = fetchSchedule();
   }
 
+// urls for opponent rosters
+  final urlList = [
+    'https://daltigers.ca/sports/xc/2020-21/wroster',
+    'https://www.goseahawks.ca/sports/wxc/2019-20/roster',
+    'https://www.umoncton.ca/umcm-sports/node/183',
+    'https://goredsgo.ca/sports/wxc/2020-21/roster',
+    'https://www.gopanthersgo.ca/sports/xc/2020-21/wroster',
+    'https://www.smuhuskies.ca/sports/xc/2020-21/wroster',
+    'https://www.gotommies.ca/sports/wxc/2020-21/roster',
+    'https://www.goxgo.ca/sports/xc/2020-21/wroster',
+  ];
+
+  // colours for opponent roster buttons
+  final colorsList = [
+    globals.dalBlack,
+    globals.munPink,
+    globals.monctonBlue,
+    globals.unbRed,
+    globals.upeiGreen,
+    globals.smuPink,
+    globals.stuGreen,
+    globals.stfxBlue,
+  ];
+
+  // icons for opponent roster buttons
+  final iconsList = [
+    globals.dalIcon,
+    globals.munIcon,
+    globals.monctonIcon,
+    globals.unbIcon,
+    globals.upeiIcon,
+    globals.smuIcon,
+    globals.stuIcon,
+    globals.stfxIcon,
+  ];
+
+  // titles for opponent roster buttons
+  final teamsList = [
+    globals.dalName,
+    globals.munName,
+    globals.monctonName,
+    globals.unbName,
+    globals.upeiName,
+    globals.smuName,
+    globals.stuName,
+    globals.stfxName
+  ];
+
+  // Create the list of opponent roster buttons by iterating over
+  // through urlList, colorsList, iconsList, and teamsList.
+  Widget _buildOpponents() {
+    return ListView.separated(
+      padding: const EdgeInsets.all(globals.defaultPadding),
+      itemCount: urlList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          height: 65,
+          color: colorsList[index],
+          child: Center(
+              child: TextButton.icon(
+                  icon: Icon(iconsList[index],
+                      size: globals.titleSize, color: globals.titleColor),
+                  label: Text(' ' + teamsList[index], style: globals.titleFont),
+                  // On button push, open a page with a webview of the opponent roster url
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Scaffold(
+                              appBar: AppBar(
+                                title: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      WidgetSpan(
+                                        child: Icon(iconsList[index],
+                                            size: globals.titleSize,
+                                            color: globals.titleColor),
+                                      ),
+                                      TextSpan(
+                                        text:
+                                            "  " + teamsList[index] + " Roster",
+                                        style: globals.titleFont,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              body: WebView(
+                                initialUrl: urlList[index],
+                                javascriptMode: JavascriptMode.unrestricted,
+                              )),
+                        ));
+                  })),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
+    );
+  }
+
   // Create the information to populate tabs
   Widget _buildList() {
     return Theme(
@@ -215,7 +314,9 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
               initialUrl:
                   'https://www.acadiaathletics.ca/sports/wxc/2019-20/roster',
               javascriptMode: JavascriptMode.unrestricted,
-            )
+            ),
+            // Third tab, displays a list of buttons with links to opponent rosters
+            _buildOpponents(),
           ],
         ));
   }
@@ -227,13 +328,14 @@ class AxewomenCrossCountryState extends State<AxewomenCrossCountry> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
                 Tab(icon: Icon(globals.scheduleIcon)),
                 Tab(text: globals.longRosterTitle),
+                Tab(text: globals.awayRosterTitle),
               ],
             ),
             title: RichText(

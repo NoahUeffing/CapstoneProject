@@ -136,6 +136,97 @@ class SwimmingState extends State<Swimming> {
     futureSchedule = fetchSchedule();
   }
 
+  // urls for opponent rosters
+  final urlList = [
+    'https://daltigers.ca/sports/swim/2020-21/roster',
+    'https://www.goseahawks.ca/sports/mswim/2019-20/roster',
+    'https://www.goseahawks.ca/sports/wswim/2019-20/roster',
+    'https://mountiepride.ca/sports/swim/2020-21/roster',
+    'https://goredsgo.ca/sports/mswim/2020-21/roster',
+    'https://goredsgo.ca/sports/wswim/2020-21/roster',
+  ];
+
+  // colours for opponent roster buttons
+  final colorsList = [
+    globals.dalBlack,
+    globals.munPink,
+    globals.munPink,
+    globals.mtaGold,
+    globals.unbRed,
+    globals.unbRed,
+  ];
+
+  // icons for opponent roster buttons
+  final iconsList = [
+    globals.dalIcon,
+    globals.munIcon,
+    globals.munIcon,
+    globals.mtaIcon,
+    globals.unbIcon,
+    globals.unbIcon,
+  ];
+
+  // titles for opponent roster buttons
+  final teamsList = [
+    globals.dalName,
+    globals.munName + " Men's",
+    globals.munName + " Women's",
+    globals.mtaName,
+    globals.unbName + " Men's",
+    globals.unbName + " Women's",
+  ];
+
+  // Create the list of opponent roster buttons by iterating over
+  // through urlList, colorsList, iconsList, and teamsList.
+  Widget _buildOpponents() {
+    return ListView.separated(
+      padding: const EdgeInsets.all(globals.defaultPadding),
+      itemCount: urlList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Container(
+          height: 65,
+          color: colorsList[index],
+          child: Center(
+              child: TextButton.icon(
+                  icon: Icon(iconsList[index],
+                      size: globals.titleSize, color: globals.titleColor),
+                  label: Text(' ' + teamsList[index], style: globals.titleFont),
+                  // On button push, open a page with a webview of the opponent roster url
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Scaffold(
+                              appBar: AppBar(
+                                title: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      WidgetSpan(
+                                        child: Icon(iconsList[index],
+                                            size: globals.titleSize,
+                                            color: globals.titleColor),
+                                      ),
+                                      TextSpan(
+                                        text:
+                                            "  " + teamsList[index] + " Roster",
+                                        style: globals.titleFont,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              body: WebView(
+                                initialUrl: urlList[index],
+                                javascriptMode: JavascriptMode.unrestricted,
+                              )),
+                        ));
+                  })),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
+    );
+  }
+
   // Create the information to populate tabs
   Widget _buildList() {
     return Theme(
@@ -224,6 +315,8 @@ class SwimmingState extends State<Swimming> {
                   'https://www.acadiaathletics.ca/sports/swim/2020-21/roster',
               javascriptMode: JavascriptMode.unrestricted,
             ),
+            // Third tab, displays a list of buttons with links to opponent rosters
+            _buildOpponents(),
           ],
         ));
   }
@@ -235,13 +328,14 @@ class SwimmingState extends State<Swimming> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
                 Tab(icon: Icon(globals.scheduleIcon)),
-                Tab(text: globals.longRosterTitle)
+                Tab(text: globals.longRosterTitle),
+                Tab(text: globals.awayRosterTitle),
               ],
             ),
             title: RichText(
