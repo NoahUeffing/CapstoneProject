@@ -51,8 +51,7 @@ dependencies.
 
 # To Update Database
 
-In the scrapers directory, use the command "./update.sh" to run all scrapers and replace all database data
-with the new json documents.
+In the scrapers directory while the server is running, use the command "./update.sh" to run all scrapers and replace all database data with the new json documents.
 
 # To Run Server
 
@@ -61,3 +60,5 @@ From the main directory run the command "npm run server". This will run the serv
 # To Run Application
 
 Using the mobile emulator of your choice, run the file "acadia_programs/sports_programs/lib/main.dart".
+Make sure the server is also running or else the API cannot be used and schedule and standings information
+will not be retrieved.
