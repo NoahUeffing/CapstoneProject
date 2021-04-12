@@ -10,7 +10,7 @@ const success = chalk.keyword("green");
 (async () => {
   try {
     // open the headless browser
-    var browser = await puppeteer.launch({ headless: false });
+    var browser = await puppeteer.launch({ headless: true });
     // open a new page
     var page = await browser.newPage();
     // enter url in page and wait for required selectors
