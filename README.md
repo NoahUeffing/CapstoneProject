@@ -59,6 +59,6 @@ From the main directory run the command "npm run server". This will run the serv
 
 # To Run Application
 
-Using the mobile emulator of your choice, run the file "acadia_programs/sports_programs/lib/main.dart".
+Using the mobile emulator of your choice (Xcode or Android Studio), run the file "acadia_programs/sports_programs/lib/main.dart".
 Make sure the server is also running or else the API cannot be used and schedule and standings information
 will not be retrieved.
